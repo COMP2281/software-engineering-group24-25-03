@@ -1,3 +1,5 @@
 ./venv
 /venv
+ProgressTrackerApi/__pycache__/
+ProgressTrackerApi/db.sqlite3
 
