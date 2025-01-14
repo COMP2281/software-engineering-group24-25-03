@@ -19,9 +19,22 @@ export const login = createAsyncThunk(
   }
 );
 
+export const authRefresh = createAsyncThunk(
+  'api/auth/token/refresh/',
+  async ({ refresh }, { rejectWithValue }) => {
+    try {
+      const response = await api.post('/api/auth/token/refresh/', { 'refresh': refresh });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || 'Login failed');
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
+    authenticated: false,
     accessToken: null,
     refreshToken: null,
     status: 'idle', 
@@ -33,6 +46,7 @@ const authSlice = createSlice({
       state.refreshToken = null;
       state.status = 'idle';
       state.error = null;
+      state.authenticated = false
     },
     setTokens(state, action) {
       state.accessToken = action.payload.access;
@@ -47,13 +61,33 @@ const authSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.status = 'succeeded';
+        state.authenticated = true
+        localStorage.setItem('refresh', action.payload.refresh)
         state.accessToken = action.payload.access;
         state.refreshToken = action.payload.refresh;
       })
       .addCase(login.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
-      });
+        state.authenticated = false;
+      })
+      .addCase(authRefresh.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(authRefresh.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.authenticated = true
+        state.accessToken = action.payload.access;
+        if(state.refreshToken == null){
+          state.accessToken = localStorage.getItem('token')
+        }
+      })
+      .addCase(authRefresh.rejected, (state, action) => {
+        state.status = 'failed';
+        state.authenticated = false;
+        state.error = action.payload;
+      })
   },
 });
 
