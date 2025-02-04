@@ -15,3 +15,4 @@ class UserDetails(GenericAPIView):
     def get(self, request):
         user_data = self.get_serializer(self.request.user)
         return Response(user_data.data)
+
