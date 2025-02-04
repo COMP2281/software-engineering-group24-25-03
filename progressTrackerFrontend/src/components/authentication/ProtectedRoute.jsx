@@ -25,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
     }else if (status == 'loading'){
         return <h1>Loading</h1>
     }else{
-        children
+        return children
     }
 };
 
