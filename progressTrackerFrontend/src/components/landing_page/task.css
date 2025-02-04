@@ -1,0 +1,8 @@
+.Task {
+    display: flex;
+    gap: 10px; /* Optional: Adds space between divs */
+    margin: 10px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    padding: 2px;
+}

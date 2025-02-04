@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Menu, Plus } from "lucide-react";
-import { motion } from "framer-motion";
+import Navbar from "../general/navbar"
+import Dashboard from "./Dashboard"
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <div> dashboard here </div>
+    <div>
+      <Navbar/>
+      <Dashboard/>
+    </div>
   );
 }
