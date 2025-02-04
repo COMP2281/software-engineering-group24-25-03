@@ -14,7 +14,7 @@ export const login = createAsyncThunk(
       const response = await api.post('/api/auth/token/', { username, password });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Login failed');
+      return rejectWithValue(error.response?.data?.message || 'Login failed Enter Valid Credentials');
     }
   }
 );
