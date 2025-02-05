@@ -14,19 +14,20 @@ const ProtectedRoute = ({ children }) => {
         return <Navigate to="/login" />
     }
   }
-  console.log(refreshToken)
   if(status == 'idle'){
     dispatch(authRefresh({ refresh: refreshToken }));
   }
 
-    if(accessToken == null && status == 'idle'){
-        return <Navigate to="/login" />
+  if(accessToken == null && status == 'idle'){
+      return <Navigate to="/login" />
 
-    }else if (status == 'loading'){
-        return <h1>Loading</h1>
-    }else{
-        children
-    }
+  }
+  if (status === 'loading'){
+      return <h1>Loading</h1>
+  }
+  else{
+      return children
+  }
 };
 
 export default ProtectedRoute;

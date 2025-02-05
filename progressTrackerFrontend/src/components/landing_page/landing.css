@@ -1,0 +1,300 @@
+/* 
+   TreePlantingDashboard.css
+   Aims to replicate the screenshot’s colors & layout.
+   Adjust pixel values and color codes to match your branding precisely.
+*/
+
+/* Global Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(
+      to bottom right,
+      #ffffff 40%,
+      #ffeac9 100%
+    ); /* Subtle gradient from top-left (white) to bottom-right (peach) */
+    color: #333;
+  }
+  
+  /* Container for the entire dashboard */
+  .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* SIDEBAR */
+  .sidebar {
+    width: 300px;
+    background-color: #f1f8f4;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-right: 1px solid #e3e3e3;
+  }
+  
+  /* USER PROFILE SECTION */
+  .user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin-right: 1rem;
+    overflow: hidden;
+  }
+  
+  .username {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #03543f; /* A darker green tone */
+  }
+  
+  /* BIG BUTTONS (Settings, Personal, etc.) */
+  .big-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .big-btn {
+    background-color: #cce8d7;
+    border: 1px solid #b1dac1;
+    color: #03543f;
+    font-size: 0.85rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .big-btn:hover {
+    background-color: #b1dac1;
+  }
+  
+  /* ALL MY LISTS SECTION */
+  .all-lists h3 {
+    font-size: 0.95rem;
+    color: #5c6f68;
+    margin-bottom: 0.5rem;
+  }
+  
+  .all-lists ul {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  
+  .all-lists > ul > li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: #4a4a4a;
+    cursor: pointer;
+  }
+  
+  .folder-icon {
+    margin-right: 0.3rem;
+    color: #866444;
+    font-size: 0.85rem;
+  }
+  
+  .sub-list {
+    margin-left: 1.5rem;
+  }
+  
+  .sub-list li.active {
+    color: #5f3d2e;
+    font-weight: 600;
+  }
+  
+  .add-list-btn {
+    margin-top: 0.5rem;
+    background: none;
+    border: none;
+    color: #5f3d2e;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* SIDEBAR FOOTER */
+  .sidebar-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-btn {
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+    color: #333;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .footer-btn:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* MAIN CONTENT */
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  /* PAGE HEADER */
+  .page-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 0.75rem;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCA1NCA1NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTMuNSAxOEgxMC41VjIxSDcuNXYzSDQuNXYzSDIuNXYzbTIzIDBIMjAuNVYyMUgxNy41VjE4SDE0LjVWMTRIMTIuNVY4SDE3LjVWOEEzLjUgMy41IDAgMDEyMSA0LjVIMjEuNVYySDI3LjV2Mi41SDE3QTQuNSA0LjUgMCAwMDEzLjUgN2g0djFoM3YzaDN2M2gzdjNoNHYzSDIwLjV2LTNoLTMuNVYxNEgyNC41VjEzSDMxVjE4aC0yLjV2M2gtNC41bTg2LjUgM3YzaC0zdi0zaC0ydi0zaC0zdi0zaDloMnYzaDN2M2gzdjNoMnptLTM5LjUgM2MtMS4yMSAwLTIuMTAzLS44NjctMi4zMDctMi4wNjYtLjIxNi0xLjQyOC0xLjQwOS0yLjU4NC0yLjgzOC0yLjcwOC0yLjI4My0uMTkzLTQuMS0yLjA2NS00LjE0MS00LjM1Ny0uMDMtMS44OTcgMS4xMy0zLjU3OCAyLjk0NC00LjIwNSAxLjQ1LS41NDggMi41NTItMS42MTEgMy4wNzMtMy4wOTMtLjUwMi0uMTc2LTEuMDAyLS4zNzktMS41NjYtLjYwN2ExLjUgMS41IDAgMDAxLjA3Ny0yLjgwN2MuNzE2LjI3NCAxLjQ5My41NjkgMi4zIDEuMDE3YzIuOTUyIDEuNDc0IDcuMTg2LjkwMSA4LjM3OC0xLjgwMiAxLjM2LTEuMzU4LjcyOC0zLjc1My0xLjM4NS00Ljc2Ny0yLjM2OS0xLjQ3NC0zLjQ4Ny00LjA5OC0zLjE4NC02Ljg4My40NzgtNy44NCA2LjQwMi0xLjQzOSA5LjMwMi0zLjM0NyAxLjMzMy0yLjQzOCAzLjU5NC0yLjg0NCA1LjU5Ni0uOTU1IDIuMTU5IDMuNDgxIDEuNzU3IDIuMTYgMy45MTQgNS44NyAxLjE2NyA2LjM3Ny0yLjk3OSAxLjMxNC00Ljc2Ny4xMzQtMS40MzguNDM3LTIuNjk5IDIuMDQ3LTIuODQ0IDQuMTU5LS4zOTIgMy42NzUgNC4wNjEgMS40MTUgNi4zNzUgMy4wMjkgMi4zMTQgMS41NjcgMy4zODkgNC4zMyAyLjk4OCA2Ljc3NC0uMzA3IDEuNDE1LTEuNjU1IDIuNjMtMy4wNzUgMi42M3oiIGZpbGw9IiNjY2MiLz48L3N2Zz4=')
+      no-repeat center center / contain;
+  }
+  
+  /* Adjust page title styling */
+  .page-header h1 {
+    font-size: 1.8rem;
+    color: #7c4a2d; /* Brownish */
+    font-weight: 600;
+  }
+  
+  /* TASK COLUMNS WRAPPER */
+  .task-columns {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  /* Each section's bounding box */
+  .task-section {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    flex: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    min-width: 250px; /* ensures columns don't get too narrow */
+    border: 2px solid transparent;
+  }
+  
+  /* Section Title */
+  .task-section h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  /* STYLING the color-coded borders & headings */
+  .not-started {
+    border-color: #c87171; /* Reddish border */
+  }
+  
+  .not-started h2 {
+    color: #a13f3f;
+  }
+  
+  .in-progress {
+    border-color: #f8b94b; /* Orange border */
+  }
+  
+  .in-progress h2 {
+    color: #cc7f00;
+  }
+  
+  .completed {
+    border-color: #50a463; /* Green border */
+  }
+  
+  .completed h2 {
+    color: #2a6b3b;
+  }
+  
+  /* TASK LISTS WITHIN */
+  .task-section ul {
+    list-style: none;
+  }
+  
+  .task-section li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  /* Task name */
+  .task-name {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    color: #444;
+  }
+  
+  /* Info row: date + avatars */
+  .task-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .task-date {
+    margin-right: 1rem;
+  }
+  
+  /* Avatars row */
+  .avatars {
+    display: flex;
+    gap: 0.3rem;
+  }
+  
+  /* SMALL avatar circles used in tasks */
+  .avatar.small {
+    width: 24px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 50%;
+    border: 1px solid #fff;
+  }
+  
+  /* FLOATING PLUS BUTTON */
+  .floating-add {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #ffc978; /* peachy/orange circle */
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    font-size: 32px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .floating-add:hover {
+    background-color: #ffb853;
+  }
+  
