@@ -1,197 +1,244 @@
 import { useDispatch, useSelector } from 'react-redux';
 import "./landing.css";
 import { fetchUserDetails } from "../../redux/slices/userDetailsSlice";
+import * as React from 'react';
+import { styled, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Avatar } from '@mui/material';
+import {Container,Row,Col, Card, CardBody, CardTitle} from 'react-bootstrap';
+import {Button} from '@mui/material';
+import Accordion from 'react-bootstrap/Accordion';
+import { fetchLists } from '../../redux/slices/dashboardSlice';
+import { useEffect } from 'react';
+import Tasks from './Tasks';
+import { fetchProjectTasks } from '../../redux/slices/dashboardSlice';
+import { useState } from 'react';
+import ListModal from './NewListModel';
+import ProjectModal from './NewProjectModal';
+const drawerWidth = 240;
+
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme }) => ({
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: `-${drawerWidth}px`,
+    variants: [
+      {
+        props: ({ open }) => open,
+        style: {
+          transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
+          marginLeft: 0,
+        },
+      },
+    ],
+  }),
+);
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme }) => ({
+  transition: theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  variants: [
+    {
+      props: ({ open }) => open,
+      style: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: `${drawerWidth}px`,
+        transition: theme.transitions.create(['margin', 'width'], {
+          easing: theme.transitions.easing.easeOut,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+      },
+    },
+  ],
+}));
+
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: 'flex-end',
+}));
 
 export default function Home() {
   const dispatch = useDispatch()
   const user_details = useSelector((state) => state.userDetails);
-  if(user_details.status ==="idle"){
-     dispatch(fetchUserDetails())
+  const dashboard = useSelector((state) => state.dashboard)
+  const [selectedProject, setSelectedProject] = useState(null);
+  useEffect(() => {
+    if (user_details.status === "idle") {
+      dispatch(fetchUserDetails());
+    }
+  }, [user_details.status, dispatch]);
+
+
+  
+  useEffect(() => {
+    if (dashboard.status === 'idle') {
+      dispatch(fetchLists());
+    }
+  }, [dashboard.status, dispatch]);
+
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(true);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const onTaskSelect = (id) => {
+    dispatch(fetchProjectTasks(id))
+    setSelectedProject(id)
   }
+  // handles list modal
+  const [openListModal, setOpenListModal] = React.useState(false);
+  const handleOpenListModal = () => setOpenListModal(true);
+  const handleCloseListModal = () => setOpenListModal(false);
+  // handles project modal
+  const [openProjectModal, setOpenProjectModal] = React.useState(false);
+  const handleOpenProjectModal = () => setOpenProjectModal(true);
+  const handleCloseProjectModal = () => setOpenProjectModal(false);
+  const [selectedList, setSelectedList] = useState(null);
+
   return (
-    <div className="dashboard-container">
-      {/* LEFT SIDEBAR */}
-      <aside className="sidebar">
-        {/* User Profile */}
-        <div className="user-profile">
-          {/* Avatar (placeholder image) */}
-          <div className="avatar">
-              <img src={user_details.profile_picture}  alt="User Avatar" />
-          </div>
-          <h2 className="username">{user_details.status === 'loading' ? 'Loading...' : user_details.user.username}</h2>
-        </div>
-
-        {/* Big Buttons */}
-        <div className="big-buttons">
-          <button className="big-btn">Settings</button>
-          <button className="big-btn">Personal</button>
-          <button className="big-btn">Reports</button>
-          <button className="big-btn">Help</button>
-        </div>
-
-        {/* All My Lists */}
-        <div className="all-lists">
-          <h3>All my lists</h3>
-          <ul>
-            <li>Building Decarbonisation</li>
-            <li>Electrical Replacement</li>
-            <li>Heating</li>
-            <li>
-              <span className="folder-icon">▾</span> Forests
-              <ul className="sub-list">
-                <li className="active">Tree Planting</li>
-              </ul>
-            </li>
-            <li>Agency Tours</li>
-          </ul>
-          {/* Add List Icon */}
-          <button className="add-list-btn">+</button>
-        </div>
-
-        {/* Footer Actions */}
-        <div className="sidebar-footer">
-          <button className="footer-btn">Archive</button>
-          <button className="footer-btn">Recently Deleted</button>
-        </div>
-      </aside>
-
-      {/* MAIN CONTENT */}
-      <main className="main-content">
-        {/* Page Title */}
-        <header className="page-header">
-          <div className="title-icon" />
-          <h1>Tree Planting</h1>
-        </header>
-
-        {/* TASK LISTS */}
-        <div className="task-columns">
-          {/* NOT STARTED */}
-          <section className="task-section not-started">
-            <h2>Not Started</h2>
-            <ul>
-              <li>
-                <span className="task-name">Marketing Report</span>
-                <div className="task-info">
-                  <span className="task-date">Thursday 23 February 2026</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Board Presentation</span>
-                <div className="task-info">
-                  <span className="task-date">Friday 23 May 2026</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Treehouse design</span>
-                <div className="task-info">
-                  <span className="task-date">Monday 23 February 2026</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Lighting for Christmas</span>
-                <div className="task-info">
-                  <span className="task-date">Friday 13 December 2024</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          {/* IN PROGRESS */}
-          <section className="task-section in-progress">
-            <h2>In Progress</h2>
-            <ul>
-              <li>
-                <span className="task-name">Order seeds</span>
-                <div className="task-info">
-                  <span className="task-date">Tuesday 31 December 2024</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Organise terraces</span>
-                <div className="task-info">
-                  <span className="task-date">Thursday 02 January 2025</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Clear dead brush</span>
-                <div className="task-info">
-                  <span className="task-date">Wednesday 14 April 2025</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Controlled burning</span>
-                <div className="task-info">
-                  <span className="task-date">Tuesday 30 March 2025</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          {/* COMPLETED */}
-          <section className="task-section completed">
-            <h2>Completed</h2>
-            <ul>
-              <li>
-                <span className="task-name">
-                  Find critically endangered location
-                </span>
-                <div className="task-info">
-                  <span className="task-date">Monday 25 November 2024</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <span className="task-name">Choose project lead</span>
-                <div className="task-info">
-                  <span className="task-date">Friday 29 November 2024</span>
-                  <div className="avatars">
-                    <div className="avatar small"></div>
-                    <div className="avatar small"></div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-        </div>
-
-        {/* Floating + Button */}
-        <button className="floating-add">+</button>
-      </main>
-    </div>
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={[
+              {
+                mr: 2,
+              },
+              open && { display: 'none' },
+            ]}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Your Tasks
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+          <Container className="mt-4">
+            <Row className="align-items-center">
+              <Col xs="auto">
+                <Avatar
+                  alt="Profile Picture"
+                  src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}
+                  sx={{ width: 56, height: 56 }} // Adjust size
+                />
+              </Col>
+              <Col>
+                <h4 className="mb-0">{user_details.status === "loading" ? "Loading..." : user_details.user?.username}</h4>
+              </Col>
+            </Row>
+            <hr/>
+            <Row>              
+                <Col><Button variant="outlined">Setting</Button></Col>
+                <Col><Button variant="outlined">Pernal</Button></Col>
+            </Row>
+            <br/>
+            <Row>              
+                <Col><Button variant="outlined">Repots</Button></Col>
+                <Col><Button variant="outlined">Helssp</Button></Col>
+            </Row>
+          </Container>
+        </List>
+        <Divider />
+        <Button varient='text' onClick={()=>handleOpenListModal()}>+ New List</Button>
+        <Divider />
+          {dashboard.status === 'succeeded'  && (
+            <Accordion defaultActiveKey="0">
+              {dashboard.lists.map((list, index) => (
+                <Accordion.Item key={list.listId} eventKey={String(index)}>
+                  <Accordion.Header>📁 {list.listName}</Accordion.Header>
+                  <Accordion.Body>
+                    {dashboard.projects[list.listId]?.length > 0 ? (
+                      <Container>
+                        {dashboard.projects[list.listId].map((project) => (
+                          <Row key={project.projectId}>
+                            <Button varient="text" onClick={()=> onTaskSelect(project.projectId)}>📄 {project.projectName}</Button>
+                          </Row>
+                        ))}
+                        <hr/>
+                        <Button varient='text' onClick={()=>{
+                          handleOpenProjectModal()
+                          setSelectedList(list.listId)
+                          }}>+ New Project</Button>
+                      </Container>
+                    ) : (
+                      <Button varient='text' onClick={()=>{
+                        handleOpenProjectModal()
+                        setSelectedList(list.listId)
+                        }}>+ New Project</Button>
+                      
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
+            </Accordion>
+          )}
+        <List>
+        </List>
+      </Drawer>
+      <Main open={open}>
+        <DrawerHeader/>
+        <ListModal handleClose={handleCloseListModal} open={openListModal}/>
+        <ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList}/>
+        {Object.keys(dashboard.tasks).length === 0 ? "Select A Project" : <Tasks project={selectedProject} />}
+        </Main>
+    </Box>
   );
 }

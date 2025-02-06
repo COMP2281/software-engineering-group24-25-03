@@ -6,7 +6,6 @@ import ProtectedRoute from './components/authentication/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from './redux/slices/authSlice';
-
 function App() {
   const dispatch = useDispatch()
   const authenticated = useSelector((state) => state.auth.authenticated)
