@@ -121,7 +121,11 @@ const dashboardSlice = createSlice({
       })
       .addCase(fetchLists.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.lists = action.payload.lists;
+        if(action.payload.lists){
+          state.lists = action.payload.lists;
+        }else{
+          state.lists = []
+        }
         Object.keys(action.payload).forEach((key) => {
           if (key !== 'lists') {
             state.projects[key] = action.payload[key];
