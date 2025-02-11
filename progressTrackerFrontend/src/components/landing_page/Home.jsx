@@ -26,7 +26,7 @@ import { fetchProjectTasks } from '../../redux/slices/dashboardSlice';
 import { useState } from 'react';
 import ListModal from './NewListModel';
 import ProjectModal from './NewProjectModal';
-const drawerWidth = 240;
+const drawerWidth = 290;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme }) => ({
@@ -127,6 +127,8 @@ export default function Home() {
   const handleCloseProjectModal = () => setOpenProjectModal(false);
   const [selectedList, setSelectedList] = useState(null);
 
+  // accordian state
+  const [activeKey, setActiveKey] = useState("0");
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -200,35 +202,40 @@ export default function Home() {
         <Button varient='text' onClick={()=>handleOpenListModal()}>+ New List</Button>
         <Divider />
           {dashboard.status === 'succeeded'  && (
-            <Accordion defaultActiveKey="0">
-              {dashboard.lists.map((list, index) => (
-                <Accordion.Item key={list.listId} eventKey={String(index)}>
-                  <Accordion.Header>📁 {list.listName}</Accordion.Header>
-                  <Accordion.Body>
-                    {dashboard.projects[list.listId]?.length > 0 ? (
-                      <Container>
-                        {dashboard.projects[list.listId].map((project) => (
-                          <Row key={project.projectId}>
-                            <Button varient="text" onClick={()=> onTaskSelect(project.projectId)}>📄 {project.projectName}</Button>
-                          </Row>
-                        ))}
-                        <hr/>
-                        <Button varient='text' onClick={()=>{
-                          handleOpenProjectModal()
-                          setSelectedList(list.listId)
-                          }}>+ New Project</Button>
-                      </Container>
-                    ) : (
-                      <Button varient='text' onClick={()=>{
-                        handleOpenProjectModal()
-                        setSelectedList(list.listId)
-                        }}>+ New Project</Button>
-                      
-                    )}
-                  </Accordion.Body>
-                </Accordion.Item>
-              ))}
-            </Accordion>
+            <Accordion activeKey={activeKey} onSelect={(eventKey) => setActiveKey(eventKey)}>
+            {dashboard.lists.map((list, index) => (
+              <Accordion.Item key={list.listId} eventKey={String(index)}>
+                <Accordion.Header>📁 {list.listName}</Accordion.Header>
+                <Accordion.Body>
+                  {dashboard.projects[list.listId]?.length > 0 ? (
+                    <Container>
+                      {dashboard.projects[list.listId].map((project) => (
+                        <Row key={project.projectId}>
+                          <Button variant="text" onClick={() => onTaskSelect(project.projectId)}>
+                            📄 {project.projectName}
+                          </Button>
+                        </Row>
+                      ))}
+                      <hr/>
+                      <Button variant='text' onClick={() => {
+                        handleOpenProjectModal();
+                        setSelectedList(list.listId);
+                      }}>
+                        + New Project
+                      </Button>
+                    </Container>
+                  ) : (
+                    <Button variant='text' onClick={() => {
+                      handleOpenProjectModal();
+                      setSelectedList(list.listId);
+                    }}>
+                      + New Project
+                    </Button>
+                  )}
+                </Accordion.Body>
+              </Accordion.Item>
+            ))}
+          </Accordion>          
           )}
         <List>
         </List>
