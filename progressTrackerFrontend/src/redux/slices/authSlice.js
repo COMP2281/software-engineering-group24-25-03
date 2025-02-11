@@ -76,12 +76,13 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(authRefresh.fulfilled, (state, action) => {
-        state.status = 'succeeded';
         state.authenticated = true
         state.accessToken = action.payload.access;
         if(state.refreshToken == null){
-          state.accessToken = localStorage.getItem('token')
+          state.refreshToken = localStorage.getItem('refresh')
         }
+        state.status = 'succeeded';
+
       })
       .addCase(authRefresh.rejected, (state, action) => {
         state.status = 'failed';
