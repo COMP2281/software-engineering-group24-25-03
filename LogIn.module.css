@@ -1,0 +1,722 @@
+.ayoOgunseinde {
+  	position: absolute;
+  	top: 17px;
+  	left: 106px;
+  	font-weight: 600;
+  	display: flex;
+  	align-items: center;
+  	width: 255px;
+  	height: 35px;
+}
+.profilePictureIcon {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 100px;
+  	width: 70px;
+  	height: 70px;
+  	object-fit: cover;
+}
+.profile {
+  	position: absolute;
+  	top: 30px;
+  	left: 30px;
+  	width: 361px;
+  	height: 70px;
+  	font-size: 30px;
+  	color: #04776f;
+}
+.settingsChild {
+  	position: absolute;
+  	top: 156px;
+  	left: 0px;
+  	border-radius: 24px;
+  	background-color: rgba(21, 157, 103, 0.17);
+  	border: 1px solid rgba(124, 255, 161, 0.23);
+  	box-sizing: border-box;
+  	width: 168px;
+  	height: 105.2px;
+}
+.title {
+  	position: absolute;
+  	top: 11px;
+  	left: calc(50% - 15px);
+  	font-weight: 600;
+  	display: flex;
+  	align-items: center;
+  	width: 91px;
+  	height: 28px;
+}
+.iconsettings {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 50px;
+  	height: 50px;
+  	overflow: hidden;
+}
+.menuItem {
+  	position: absolute;
+  	top: 184px;
+  	left: 8px;
+  	width: 152px;
+  	height: 50px;
+}
+.settings {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 241px;
+  	height: 261.2px;
+}
+.menuItem1 {
+  	position: absolute;
+  	top: 28px;
+  	left: 14px;
+  	width: 152px;
+  	height: 50px;
+}
+.reportsButtonChild {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 24px;
+  	background-color: rgba(21, 157, 103, 0.17);
+  	border: 1px solid rgba(124, 255, 161, 0.23);
+  	box-sizing: border-box;
+  	width: 168px;
+  	height: 105.2px;
+}
+.reportsButton {
+  	position: absolute;
+  	top: 281px;
+  	left: 0px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.menuItem2 {
+  	position: absolute;
+  	top: 28px;
+  	left: 8px;
+  	width: 152px;
+  	height: 50px;
+}
+.personalisedMode {
+  	position: absolute;
+  	top: 156px;
+  	left: 188px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.iconlightbulb {
+  	position: absolute;
+  	height: 100%;
+  	width: 32.89%;
+  	top: 8%;
+  	right: 67.11%;
+  	bottom: -8%;
+  	left: 0%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.help {
+  	position: absolute;
+  	top: 281px;
+  	left: 188px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.quickActionButtons {
+  	position: absolute;
+  	top: 0px;
+  	left: 30px;
+  	width: 356px;
+  	height: 386.2px;
+  	color: #04776f;
+}
+.separator {
+  	position: absolute;
+  	top: 0px;
+  	left: 419px;
+  	background: linear-gradient(180deg, rgba(171, 214, 212, 0.7), rgba(127, 222, 234, 0.7));
+  	width: 2px;
+  	height: 981px;
+}
+.allMyLists {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	font-weight: 600;
+  	color: rgba(0, 0, 0, 0.51);
+  	display: flex;
+  	align-items: center;
+  	width: 146px;
+  	height: 38px;
+}
+.buildingDecarbonisation {
+  	position: absolute;
+  	top: 0px;
+  	left: 42px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconclipboardList {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	width: 32px;
+  	height: 32px;
+  	overflow: hidden;
+}
+.listName {
+  	position: absolute;
+  	top: 45px;
+  	left: 0px;
+  	width: 337px;
+  	height: 38px;
+}
+.listName1 {
+  	position: absolute;
+  	top: 270px;
+  	left: 29px;
+  	width: 337px;
+  	height: 38px;
+}
+.listName2 {
+  	position: absolute;
+  	top: 90px;
+  	left: 0px;
+  	width: 337px;
+  	height: 38px;
+}
+.heating {
+  	position: absolute;
+  	top: 0px;
+  	left: 71px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconfolder {
+  	position: absolute;
+  	top: 4px;
+  	left: 29px;
+  	width: 30px;
+  	height: 30px;
+  	overflow: hidden;
+}
+.iconchevronDown {
+  	position: absolute;
+  	top: 6px;
+  	left: 0px;
+  	width: 24px;
+  	height: 24px;
+  	overflow: hidden;
+  	object-fit: contain;
+}
+.folderClosed {
+  	position: absolute;
+  	top: 135px;
+  	left: 0px;
+  	width: 337px;
+  	height: 38px;
+}
+.iconchevronDown1 {
+  	position: absolute;
+  	top: 6px;
+  	left: 0px;
+  	width: 24px;
+  	height: 24px;
+  	overflow: hidden;
+}
+.folderClosed1 {
+  	position: absolute;
+  	top: 180px;
+  	left: 0px;
+  	width: 337px;
+  	height: 38px;
+}
+.iconclipboardList3 {
+  	position: absolute;
+  	top: 3px;
+  	left: 28px;
+  	width: 32px;
+  	height: 32px;
+  	overflow: hidden;
+}
+.folderOpen {
+  	position: absolute;
+  	top: 221px;
+  	left: -4px;
+  	border-radius: 12px;
+  	background-color: #724733;
+  	border: 4px solid #724733;
+  	box-sizing: border-box;
+  	width: 374px;
+  	height: 46px;
+  	color: #fff;
+}
+.iconplus {
+  	position: absolute;
+  	top: 7px;
+  	left: 342px;
+  	width: 24px;
+  	height: 24px;
+  	overflow: hidden;
+}
+.listSection {
+  	position: absolute;
+  	top: 438px;
+  	left: 30px;
+  	width: 366px;
+  	height: 308px;
+}
+.listName3 {
+  	position: absolute;
+  	top: 924px;
+  	left: 35px;
+  	width: 163px;
+  	height: 38px;
+}
+.recentlyDeleted {
+  	position: absolute;
+  	top: 0px;
+  	left: 11px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.icontrash2 {
+  	position: absolute;
+  	top: 3px;
+  	left: -31px;
+  	width: 32px;
+  	height: 32px;
+  	overflow: hidden;
+}
+.listName4 {
+  	position: absolute;
+  	top: 924px;
+  	left: 223px;
+  	width: 163px;
+  	height: 38px;
+}
+.sidebar {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	background-color: #f5f5f5;
+  	width: 421px;
+  	height: 982px;
+  	overflow: hidden;
+  	cursor: pointer;
+}
+.treePlanting1 {
+  	position: absolute;
+  	top: 9px;
+  	left: 87px;
+  	display: flex;
+  	align-items: center;
+  	width: 599px;
+  	height: 38px;
+}
+.iconclipboardList4 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 60px;
+  	height: 60px;
+}
+.pageTitle {
+  	position: absolute;
+  	top: 35px;
+  	left: 472px;
+  	width: 686px;
+  	height: 60px;
+  	font-size: 60px;
+}
+.background {
+  	position: absolute;
+  	top: 21px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(209, 57, 57, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 248px;
+}
+.marketingReport {
+  	position: absolute;
+  	top: 0px;
+  	left: 59px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.listItemNameChild {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	border-radius: 10px;
+  	background-color: rgba(136, 136, 136, 0.21);
+  	border: 2px solid #a9a9a9;
+  	box-sizing: border-box;
+  	width: 31px;
+  	height: 31px;
+}
+.listItemName {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 354px;
+  	height: 38px;
+}
+.thursday23February {
+  	position: absolute;
+  	top: 0px;
+  	left: 47px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconcalendarDays {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	width: 31px;
+  	height: 31px;
+  	overflow: hidden;
+}
+.listItemDueDate {
+  	position: absolute;
+  	top: 0px;
+  	left: 399px;
+  	width: 342px;
+  	height: 38px;
+}
+.listItemAssignees {
+  	position: absolute;
+  	top: 3px;
+  	left: 785px;
+  	width: 52px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.listItem {
+  	position: absolute;
+  	top: 39px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem1 {
+  	position: absolute;
+  	top: 155px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem2 {
+  	position: absolute;
+  	top: 97px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem3 {
+  	position: absolute;
+  	top: 213px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.folderClip {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: #d13939;
+  	width: 178px;
+  	height: 23px;
+}
+.notStarted {
+  	position: absolute;
+  	top: 0px;
+  	left: 30px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 141px;
+  	height: 28px;
+}
+.clip {
+  	position: absolute;
+  	top: -2px;
+  	left: 33px;
+  	width: 178px;
+  	height: 28px;
+  	color: #fff;
+}
+.profileBrooke {
+  	position: absolute;
+  	top: 42px;
+  	left: 847px;
+  	border-radius: 56px;
+  	width: 31px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.toDoItems {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 267px;
+}
+.background1 {
+  	position: absolute;
+  	top: 21px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(220, 144, 31, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 248px;
+}
+.folderClip1 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: #dc901f;
+  	width: 178px;
+  	height: 23px;
+}
+.profileBrooke1 {
+  	position: absolute;
+  	top: 159px;
+  	left: 847px;
+  	border-radius: 56px;
+  	width: 31px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.inProgress {
+  	position: absolute;
+  	top: 296px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 267px;
+}
+.background2 {
+  	position: absolute;
+  	top: 21px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(9, 150, 53, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 131px;
+}
+.findCriticallyEndangered {
+  	position: absolute;
+  	top: 0px;
+  	left: 59px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 331px;
+  	height: 38px;
+}
+.listItemName8 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 399px;
+  	height: 38px;
+}
+.folderClip2 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: rgba(9, 150, 53, 0.71);
+  	width: 178px;
+  	height: 23px;
+}
+.done {
+  	position: absolute;
+  	top: 592px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 157px;
+}
+.listsByStatus {
+  	position: absolute;
+  	top: 149px;
+  	left: 464px;
+  	width: 1000px;
+  	height: 749px;
+  	color: #181818;
+}
+.newListItemButton {
+  	position: absolute;
+  	top: 804px;
+  	left: 1334px;
+  	width: 178px;
+  	height: 178px;
+}
+.plannerApp {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	background-color: #fff;
+  	width: 1512px;
+  	height: 982px;
+  	overflow: hidden;
+}
+.lockedBlur {
+  	position: absolute;
+  	top: -1px;
+  	left: 5px;
+  	backdrop-filter: blur(300px);
+  	background-color: rgba(217, 217, 217, 0.1);
+  	width: 1512px;
+  	height: 982px;
+}
+.logIn1 {
+  	position: absolute;
+  	top: 71.5px;
+  	left: 47px;
+  	font-size: 60px;
+  	display: flex;
+  	color: #724733;
+  	align-items: center;
+  	justify-content: center;
+  	width: 549px;
+}
+.username {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	width: 227px;
+  	height: 22px;
+}
+.usernameFieldChild {
+  	position: absolute;
+  	top: 30.5px;
+  	left: 47px;
+  	border-radius: 20px;
+  	background-color: #f0f0f0;
+  	border: 2px solid #a9a9a9;
+  	box-sizing: border-box;
+  	width: 549px;
+  	height: 77px;
+}
+.placeholderUsername {
+  	position: absolute;
+  	top: 58px;
+  	left: 76px;
+  	font-weight: 500;
+  	color: #666565;
+  	text-align: left;
+  	display: flex;
+  	align-items: center;
+  	width: 491px;
+  	height: 22px;
+}
+.usernameField {
+  	position: absolute;
+  	top: 204px;
+  	left: 0px;
+  	width: 596px;
+  	height: 107.5px;
+}
+.passwordPlaceholderIcon {
+  	position: absolute;
+  	top: 59px;
+  	left: 76px;
+  	width: 262px;
+  	height: 20px;
+}
+.passwordField {
+  	position: absolute;
+  	top: 349px;
+  	left: 0px;
+  	width: 596px;
+  	height: 107.5px;
+}
+.title4 {
+  	position: relative;
+  	font-weight: 600;
+}
+.menuItem4 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 24px;
+  	background-color: rgba(21, 157, 103, 0.17);
+  	border: 1px solid rgba(124, 255, 161, 0.23);
+  	box-sizing: border-box;
+  	width: 168px;
+  	height: 61px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 4px 26px;
+}
+.help1 {
+  	position: absolute;
+  	top: 516px;
+  	left: 244px;
+  	width: 168px;
+  	height: 61px;
+  	cursor: pointer;
+  	text-align: left;
+  	font-size: 18px;
+  	color: #04776f;
+}
+.logInCard {
+  	position: absolute;
+  	top: 181px;
+  	left: 439px;
+  	border-radius: 40px;
+  	background-color: #fff;
+  	border: 1px solid #dedede;
+  	box-sizing: border-box;
+  	width: 643px;
+  	height: 647px;
+  	text-align: center;
+  	font-size: 16px;
+  	color: #000;
+}
+.logIn {
+  	width: 100%;
+  	position: relative;
+  	height: 982px;
+  	text-align: left;
+  	font-size: 18px;
+  	color: #724733;
+  	font-family: Inter;
+}
+
