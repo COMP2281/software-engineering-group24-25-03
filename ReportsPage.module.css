@@ -1,0 +1,206 @@
+.title {
+  	position: absolute;
+  	top: -7px;
+  	left: 82px;
+  	display: flex;
+  	align-items: center;
+  	width: 667px;
+  	height: 73px;
+}
+.iconfileLineChart {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 60px;
+  	height: 60px;
+  	overflow: hidden;
+}
+.pageTitle {
+  	position: absolute;
+  	top: 35px;
+  	left: 51px;
+  	width: 992px;
+  	height: 60px;
+}
+.settingAreHere {
+  	position: absolute;
+  	top: 305px;
+  	left: 215px;
+  	font-size: 18px;
+  	font-weight: 500;
+  	color: #fff;
+  	display: flex;
+  	align-items: center;
+  	width: 581px;
+  	height: 213px;
+}
+.settingsElementsChild {
+  	position: absolute;
+  	top: 16px;
+  	left: 15px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid rgba(209, 57, 57, 0.6);
+  	box-sizing: border-box;
+  	width: 140px;
+  	height: 140px;
+}
+.settingsElementsItem {
+  	position: absolute;
+  	top: 16px;
+  	left: 177px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid rgba(220, 144, 31, 0.6);
+  	box-sizing: border-box;
+  	width: 140px;
+  	height: 140px;
+}
+.settingsElementsInner {
+  	position: absolute;
+  	top: 16px;
+  	left: 339px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid rgba(9, 150, 53, 0.6);
+  	box-sizing: border-box;
+  	width: 140px;
+  	height: 140px;
+}
+.rectangleDiv {
+  	position: absolute;
+  	top: 16px;
+  	left: 514px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid #ff8f8f;
+  	box-sizing: border-box;
+  	width: 463px;
+  	height: 140px;
+}
+.settingsElementsChild1 {
+  	position: absolute;
+  	top: 712px;
+  	left: 828px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid #ff8f8f;
+  	box-sizing: border-box;
+  	width: 526px;
+  	height: 140px;
+  	transform:  rotate(-90deg);
+  	transform-origin: 0 0;
+}
+.settingsElementsChild2 {
+  	position: absolute;
+  	top: 181px;
+  	left: 15px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid #ff8f8f;
+  	box-sizing: border-box;
+  	width: 302px;
+  	height: 550px;
+}
+.settingsElementsChild3 {
+  	position: absolute;
+  	top: 181px;
+  	left: 349px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid #ff8f8f;
+  	box-sizing: border-box;
+  	width: 447px;
+  	height: 237px;
+}
+.settingsElementsChild4 {
+  	position: absolute;
+  	top: 443px;
+  	left: 349px;
+  	border-radius: 20px;
+  	background-color: #f9f9f9;
+  	border: 6px solid #ff8f8f;
+  	box-sizing: border-box;
+  	width: 447px;
+  	height: 280px;
+}
+.div {
+  	position: absolute;
+  	top: 57px;
+  	left: 34px;
+  	font-weight: 500;
+}
+.div1 {
+  	position: absolute;
+  	top: 57px;
+  	left: 196px;
+  	font-weight: 500;
+}
+.div2 {
+  	position: absolute;
+  	top: 57px;
+  	left: 358px;
+  	font-weight: 500;
+}
+.notStarted {
+  	color: #d13939;
+}
+.ofTasksNotContainer1 {
+  	width: 100%;
+}
+.ofTasksNotContainer {
+  	position: absolute;
+  	top: 130px;
+  	left: 36px;
+  	font-size: 10px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 98px;
+  	height: 8px;
+}
+.inProgress {
+  	color: #e4b755;
+}
+.ofTasksInContainer {
+  	position: absolute;
+  	top: 130px;
+  	left: 198px;
+  	font-size: 10px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 98px;
+  	height: 8px;
+}
+.done {
+  	color: #50b470;
+}
+.ofTasksDoneContainer {
+  	position: absolute;
+  	top: 128px;
+  	left: 376px;
+  	font-size: 10px;
+  	font-weight: 500;
+}
+.settingsElements {
+  	position: absolute;
+  	top: 151px;
+  	left: 29px;
+  	width: 1000px;
+  	height: 749px;
+  	font-size: 48px;
+  	color: #000;
+}
+.reportsPage {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	height: 982px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 50px;
+  	color: #724733;
+  	font-family: Inter;
+}
+
