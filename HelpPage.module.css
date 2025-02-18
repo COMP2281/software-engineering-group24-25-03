@@ -1,0 +1,175 @@
+.title {
+  	position: absolute;
+  	top: -7px;
+  	left: 82px;
+  	display: flex;
+  	align-items: center;
+  	width: 667px;
+  	height: 73px;
+}
+.heartHandshakeIcon {
+  	position: absolute;
+  	top: 7.48px;
+  	left: 4.98px;
+  	width: 50px;
+  	height: 45px;
+}
+.pageTitle {
+  	position: absolute;
+  	top: 35px;
+  	left: 51px;
+  	width: 992px;
+  	height: 60px;
+}
+.videoTileChild {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 23px;
+  	background-color: #f5f3f3;
+  	border: 2px solid rgba(124, 255, 161, 0.23);
+  	box-sizing: border-box;
+  	width: 328px;
+  	height: 202px;
+}
+.iconplay {
+  	position: absolute;
+  	top: 51px;
+  	left: 114px;
+  	width: 100px;
+  	height: 100px;
+  	overflow: hidden;
+}
+.howToAdd {
+  	width: 221px;
+  	position: relative;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	height: 19px;
+  	flex-shrink: 0;
+}
+.min {
+  	position: relative;
+  	font-size: 12px;
+  	font-weight: 500;
+  	color: #9b9b9b;
+}
+.videoDescription {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 311px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 53px;
+}
+.inThisShort {
+  	position: absolute;
+  	top: 28px;
+  	left: 3px;
+  	font-size: 12px;
+  	font-weight: 500;
+  	color: #7e7e7e;
+  	display: flex;
+  	align-items: center;
+  	width: 306px;
+  	height: 49px;
+}
+.descriptionFrame {
+  	position: absolute;
+  	top: 214px;
+  	left: 11px;
+  	width: 311px;
+  	height: 77px;
+}
+.videoTile {
+  	position: absolute;
+  	top: 1px;
+  	left: 1104px;
+  	width: 328px;
+  	height: 291px;
+}
+.videoTile1 {
+  	position: absolute;
+  	top: 6px;
+  	left: 1472px;
+  	width: 328px;
+  	height: 291px;
+}
+.videoTile2 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 328px;
+  	height: 291px;
+}
+.videoTile3 {
+  	position: absolute;
+  	top: 5px;
+  	left: 368px;
+  	width: 328px;
+  	height: 291px;
+}
+.videoTile4 {
+  	position: absolute;
+  	top: 5px;
+  	left: 736px;
+  	width: 328px;
+  	height: 291px;
+}
+.videoTileGroup {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 1064px;
+  	height: 296px;
+}
+.videoTileParent {
+  	position: absolute;
+  	top: 45px;
+  	left: 42px;
+  	width: 985px;
+  	height: 296px;
+  	overflow-x: auto;
+}
+.videoTileContainer {
+  	position: absolute;
+  	top: 427px;
+  	left: 42px;
+  	width: 985px;
+  	height: 296px;
+  	overflow-x: auto;
+}
+.helpElementsChild {
+  	position: absolute;
+  	top: 4px;
+  	left: 934px;
+  	filter: blur(39.8px);
+  	background-color: #fff;
+  	width: 93px;
+  	height: 745px;
+}
+.helpElements {
+  	position: absolute;
+  	top: 149px;
+  	left: 43px;
+  	width: 1000px;
+  	height: 749px;
+  	overflow: hidden;
+  	font-size: 18px;
+  	color: #000;
+}
+.helpPage {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	height: 982px;
+  	text-align: left;
+  	font-size: 50px;
+  	color: #724733;
+  	font-family: Inter;
+}
+
