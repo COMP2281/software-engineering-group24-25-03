@@ -1,0 +1,108 @@
+.title {
+  	position: absolute;
+  	top: -7px;
+  	left: 82px;
+  	display: flex;
+  	align-items: center;
+  	width: 667px;
+  	height: 73px;
+}
+.iconsettings {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 60px;
+  	height: 60px;
+  	overflow: hidden;
+}
+.pageTitle {
+  	position: absolute;
+  	top: 35px;
+  	left: 51px;
+  	width: 992px;
+  	height: 60px;
+}
+.basicOptionCreateTaskChild {
+  	position: absolute;
+  	top: -8px;
+  	left: -8px;
+  	border-radius: 40px;
+  	background-color: #f7f7ff;
+  	border: 8px solid rgba(99, 187, 245, 0.58);
+  	box-sizing: border-box;
+  	width: 390px;
+  	height: 312px;
+}
+.iconuser {
+  	position: absolute;
+  	top: 24.5px;
+  	left: 32px;
+  	width: 125px;
+  	height: 125px;
+  	overflow: hidden;
+}
+.manageAccount {
+  	position: absolute;
+  	top: calc(50% + 73px);
+  	left: calc(50% - 138px);
+  	font-weight: 600;
+}
+.basicOptionCreateTask {
+  	width: 374px;
+  	position: relative;
+  	height: 296px;
+}
+.basicOptionReportChild {
+  	position: absolute;
+  	top: -8px;
+  	left: -8px;
+  	border-radius: 40px;
+  	background-color: #f7f7ff;
+  	border: 8px solid rgba(98, 191, 94, 0.58);
+  	box-sizing: border-box;
+  	width: 390px;
+  	height: 312px;
+}
+.vectorIcon {
+  	position: absolute;
+  	top: 23.5px;
+  	left: 32px;
+  	width: 125px;
+  	height: 139px;
+}
+.iconusers {
+  	position: absolute;
+  	top: 23.5px;
+  	left: 32px;
+  	width: 125px;
+  	height: 125px;
+  	overflow: hidden;
+}
+.settingsElements {
+  	position: absolute;
+  	top: 149px;
+  	left: 43px;
+  	width: 1000px;
+  	height: 749px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	flex-wrap: wrap;
+  	align-content: center;
+  	gap: 80px;
+  	font-size: 30px;
+  	color: #000;
+}
+.settingsPage {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	height: 982px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 50px;
+  	color: #724733;
+  	font-family: Inter;
+}
+
