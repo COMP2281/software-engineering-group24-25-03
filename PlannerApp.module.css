@@ -1,0 +1,735 @@
+.ayoOgunseinde {
+  	position: absolute;
+  	top: 17px;
+  	left: 106px;
+  	font-weight: 600;
+  	display: flex;
+  	align-items: center;
+  	width: 255px;
+  	height: 35px;
+}
+.profilePictureIcon {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 100px;
+  	width: 70px;
+  	height: 70px;
+  	object-fit: cover;
+}
+.profile1 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 361px;
+  	height: 70px;
+}
+.profile {
+  	position: absolute;
+  	top: 30px;
+  	left: 30px;
+  	width: 361px;
+  	height: 70px;
+  	font-size: 30px;
+  	color: #04776f;
+}
+.actionButtonsChild {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 24px;
+  	background-color: rgba(21, 157, 103, 0.17);
+  	border: 1px solid rgba(124, 255, 161, 0.23);
+  	box-sizing: border-box;
+  	width: 168px;
+  	height: 105.2px;
+}
+.title {
+  	position: absolute;
+  	top: 11px;
+  	left: calc(50% - 15px);
+  	font-weight: 600;
+  	display: flex;
+  	align-items: center;
+  	width: 91px;
+  	height: 28px;
+}
+.iconsettings {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 50px;
+  	height: 50px;
+  	overflow: hidden;
+}
+.menuItem {
+  	position: absolute;
+  	top: 27.52px;
+  	left: 8px;
+  	width: 152px;
+  	height: 50px;
+}
+.actionButtons {
+  	position: absolute;
+  	top: -2px;
+  	left: 0px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.menuItem1 {
+  	position: absolute;
+  	top: 28px;
+  	left: 8px;
+  	width: 152px;
+  	height: 50px;
+}
+.actionButtons1 {
+  	position: absolute;
+  	top: -2px;
+  	left: 188px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.actionButtonsInner {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 24px;
+  	background-color: #d0e7dd;
+  	border: 1px solid rgba(124, 255, 161, 0.23);
+  	box-sizing: border-box;
+  	width: 168px;
+  	height: 105.2px;
+}
+.iconlightbulb {
+  	position: absolute;
+  	height: 100%;
+  	width: 32.89%;
+  	top: 8%;
+  	right: 67.11%;
+  	bottom: -8%;
+  	left: 0%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.menuItem2 {
+  	position: absolute;
+  	top: 27.55px;
+  	left: 8px;
+  	width: 152px;
+  	height: 50px;
+}
+.actionButtons2 {
+  	position: absolute;
+  	top: 125px;
+  	left: 188px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.menuItem3 {
+  	position: absolute;
+  	top: 28.03px;
+  	left: 8px;
+  	width: 152px;
+  	height: 50px;
+}
+.actionButtons3 {
+  	position: absolute;
+  	top: 125px;
+  	left: -1px;
+  	width: 168px;
+  	height: 105.2px;
+}
+.quickActionButtons {
+  	position: absolute;
+  	top: 156px;
+  	left: 30px;
+  	width: 356px;
+  	height: 230px;
+  	color: #04776f;
+}
+.separator {
+  	position: absolute;
+  	top: 0px;
+  	left: 419px;
+  	background: linear-gradient(180deg, rgba(171, 214, 212, 0.7), rgba(127, 222, 234, 0.7));
+  	width: 2px;
+  	height: 981px;
+}
+.allMyLists {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	font-weight: 600;
+  	color: rgba(0, 0, 0, 0.51);
+  	display: flex;
+  	align-items: center;
+  	width: 146px;
+  	height: 38px;
+}
+.heating {
+  	position: absolute;
+  	top: 0px;
+  	left: 71px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconfolder {
+  	position: absolute;
+  	top: 4px;
+  	left: 29px;
+  	width: 30px;
+  	height: 30px;
+  	overflow: hidden;
+}
+.iconchevronDown {
+  	position: absolute;
+  	top: 6px;
+  	left: 0px;
+  	width: 24px;
+  	height: 24px;
+  	overflow: hidden;
+  	object-fit: contain;
+}
+.folderClosed {
+  	position: absolute;
+  	top: 135px;
+  	left: 0px;
+  	width: 337px;
+  	height: 38px;
+}
+.iconchevronDown1 {
+  	position: absolute;
+  	top: 6px;
+  	left: 0px;
+  	width: 24px;
+  	height: 24px;
+  	overflow: hidden;
+}
+.folderClosed1 {
+  	position: absolute;
+  	top: 180px;
+  	left: 0px;
+  	width: 337px;
+  	height: 38px;
+}
+.iconfolderPlus {
+  	position: absolute;
+  	top: 9px;
+  	left: 340px;
+  	width: 26px;
+  	height: 26px;
+  	overflow: hidden;
+}
+.iconclipboardList {
+  	position: absolute;
+  	top: 3px;
+  	left: 28px;
+  	width: 32px;
+  	height: 32px;
+  	overflow: hidden;
+}
+.listName {
+  	position: absolute;
+  	top: 270px;
+  	left: 0px;
+  	border-radius: 12px;
+  	width: 366px;
+  	height: 38px;
+}
+.buildingDecarbonisation {
+  	position: absolute;
+  	top: 0px;
+  	left: 43px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.listName1 {
+  	position: absolute;
+  	top: 45px;
+  	left: -5px;
+  	border-radius: 12px;
+  	width: 366px;
+  	height: 38px;
+}
+.listName2 {
+  	position: absolute;
+  	top: 90px;
+  	left: -5px;
+  	border-radius: 12px;
+  	width: 366px;
+  	height: 38px;
+}
+.listName3 {
+  	position: absolute;
+  	top: 221px;
+  	left: -4px;
+  	border-radius: 12px;
+  	background-color: #724733;
+  	border: 4px solid #724733;
+  	box-sizing: border-box;
+  	width: 374px;
+  	height: 46px;
+  	color: #fff;
+}
+.iconclipboard {
+  	position: absolute;
+  	top: 7px;
+  	left: 311px;
+  	width: 26px;
+  	height: 26px;
+  	overflow: hidden;
+  	object-fit: contain;
+}
+.listSection {
+  	position: absolute;
+  	top: 438px;
+  	left: 30px;
+  	width: 366px;
+  	height: 308px;
+}
+.archive {
+  	position: absolute;
+  	top: 0px;
+  	left: 42px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconarchive {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	width: 32px;
+  	height: 32px;
+  	overflow: hidden;
+}
+.listName4 {
+  	position: absolute;
+  	top: 924px;
+  	left: 35px;
+  	width: 163px;
+  	height: 38px;
+  	cursor: pointer;
+}
+.recentlyDeleted {
+  	position: absolute;
+  	top: 0px;
+  	left: -31px;
+  	width: 213px;
+  	height: 38px;
+}
+.listName5 {
+  	position: absolute;
+  	top: 924px;
+  	left: 223px;
+  	width: 163px;
+  	height: 38px;
+  	cursor: pointer;
+}
+.sidebar {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	background-color: #f5f5f5;
+  	width: 421px;
+  	height: 982px;
+  	overflow: hidden;
+  	cursor: pointer;
+}
+.chooseOrCreate {
+  	position: absolute;
+  	top: 333px;
+  	left: 414px;
+  	display: flex;
+  	font-weight: 500;
+  	align-items: center;
+  	width: 449px;
+  	height: 315px;
+}
+.iconhaze {
+  	position: absolute;
+  	height: 10.18%;
+  	width: 9.17%;
+  	top: 44.09%;
+  	right: 65.44%;
+  	bottom: 45.72%;
+  	left: 25.39%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.placeholderPage {
+  	position: absolute;
+  	top: 0px;
+  	left: 421px;
+  	background-color: #fff;
+  	width: 1091px;
+  	height: 982px;
+  	overflow: hidden;
+  	font-size: 30px;
+  	color: #a0a0a0;
+}
+.title4 {
+  	position: absolute;
+  	top: -7px;
+  	left: 82px;
+  	display: flex;
+  	align-items: center;
+  	width: 667px;
+  	height: 73px;
+}
+.iconclipboardList4 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 60px;
+  	height: 60px;
+}
+.pageTitle {
+  	position: absolute;
+  	top: 35px;
+  	left: 51px;
+  	width: 992px;
+  	height: 60px;
+}
+.background {
+  	position: absolute;
+  	top: 26px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(209, 57, 57, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 127px;
+}
+.treehouseDesign {
+  	position: absolute;
+  	top: 0px;
+  	left: 59px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.listItemNameChild {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	border-radius: 10px;
+  	background-color: rgba(136, 136, 136, 0.21);
+  	border: 2px solid #a9a9a9;
+  	box-sizing: border-box;
+  	width: 31px;
+  	height: 31px;
+}
+.listItemName {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 354px;
+  	height: 38px;
+}
+.monday23February {
+  	position: absolute;
+  	top: 0px;
+  	left: 47px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconcalendarDays {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	width: 31px;
+  	height: 31px;
+  	overflow: hidden;
+}
+.listItemDueDate {
+  	position: absolute;
+  	top: 0px;
+  	left: 399px;
+  	width: 342px;
+  	height: 38px;
+}
+.listItemAssignees {
+  	position: absolute;
+  	top: 3px;
+  	left: 785px;
+  	width: 52px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.listItem {
+  	position: absolute;
+  	top: 98px;
+  	left: 20px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem1 {
+  	position: absolute;
+  	top: 40px;
+  	left: 20px;
+  	width: 837px;
+  	height: 38px;
+}
+.folderClip {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: #d13939;
+  	width: 178px;
+  	height: 23px;
+}
+.notStarted {
+  	position: absolute;
+  	top: 0px;
+  	left: 30px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 141px;
+  	height: 28px;
+}
+.clip {
+  	position: absolute;
+  	top: 3px;
+  	left: 34px;
+  	width: 178px;
+  	height: 28px;
+  	color: #fff;
+}
+.toDoItemsMemode {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 151px;
+  	display: none;
+}
+.background1 {
+  	position: absolute;
+  	top: 26px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(209, 57, 57, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 248px;
+}
+.listItem2 {
+  	position: absolute;
+  	top: 39px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem3 {
+  	position: absolute;
+  	top: 155px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem4 {
+  	position: absolute;
+  	top: 97px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.listItem5 {
+  	position: absolute;
+  	top: 213px;
+  	left: 18px;
+  	width: 837px;
+  	height: 38px;
+}
+.toDoItems {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 272px;
+}
+.background2 {
+  	position: absolute;
+  	top: 21px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(220, 144, 31, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 132px;
+}
+.folderClip2 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: #dc901f;
+  	width: 178px;
+  	height: 23px;
+}
+.clip2 {
+  	position: absolute;
+  	top: -2px;
+  	left: 33px;
+  	width: 178px;
+  	height: 28px;
+  	color: #fff;
+}
+.inProgressMemode {
+  	position: absolute;
+  	top: 182px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 151px;
+  	display: none;
+}
+.background3 {
+  	position: absolute;
+  	top: 21px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(220, 144, 31, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 248px;
+}
+.profileBrooke {
+  	position: absolute;
+  	top: 159px;
+  	left: 847px;
+  	border-radius: 56px;
+  	width: 31px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.inProgress1 {
+  	position: absolute;
+  	top: 296px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 267px;
+}
+.background4 {
+  	position: absolute;
+  	top: 21px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(9, 150, 53, 0.6);
+  	box-sizing: border-box;
+  	width: 1004px;
+  	height: 131px;
+}
+.findCriticallyEndangered {
+  	position: absolute;
+  	top: 0px;
+  	left: 59px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 331px;
+  	height: 38px;
+}
+.listItemName12 {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 399px;
+  	height: 38px;
+}
+.folderClip4 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: rgba(9, 150, 53, 0.71);
+  	width: 178px;
+  	height: 23px;
+}
+.done {
+  	position: absolute;
+  	top: 592px;
+  	left: 0px;
+  	width: 1000px;
+  	height: 157px;
+}
+.listsByStatus {
+  	position: absolute;
+  	top: 149px;
+  	left: 43px;
+  	width: 1000px;
+  	height: 749px;
+  	font-size: 18px;
+  	color: #181818;
+}
+.listPage {
+  	position: absolute;
+  	top: 0px;
+  	left: 421px;
+  	background-color: #fff;
+  	width: 1091px;
+  	height: 982px;
+  	overflow: hidden;
+  	font-size: 50px;
+}
+.newListItemButton {
+  	position: absolute;
+  	top: 804px;
+  	left: 1334px;
+  	width: 178px;
+  	height: 178px;
+}
+.helpPage {
+  	position: absolute;
+  	top: 0px;
+  	left: 421px;
+  	background-color: #fff;
+  	width: 1091px;
+  	height: 982px;
+  	display: none;
+}
+.reportsPage {
+  	position: absolute;
+  	top: 0px;
+  	left: 421px;
+  	background-color: #fff;
+  	width: 1091px;
+  	height: 982px;
+  	overflow: hidden;
+  	display: none;
+}
+.plannerApp {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	height: 982px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 18px;
+  	color: #724733;
+  	font-family: Inter;
+}
+
