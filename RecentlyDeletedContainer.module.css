@@ -1,0 +1,339 @@
+.icontrash2 {
+  	position: absolute;
+  	top: 39px;
+  	left: 47px;
+  	width: 125px;
+  	height: 125px;
+  	overflow: hidden;
+}
+.recentlyDeletedTasks {
+  	position: absolute;
+  	top: 74px;
+  	left: 209px;
+  	font-weight: 600;
+  	display: flex;
+  	align-items: center;
+  	width: 565px;
+  	height: 70px;
+}
+.title {
+  	position: absolute;
+  	top: -7px;
+  	left: 82px;
+  	display: flex;
+  	align-items: center;
+  	width: 667px;
+  	height: 73px;
+}
+.iconclipboardList {
+  	position: absolute;
+  	top: 9px;
+  	left: 0px;
+  	width: 40px;
+  	height: 40px;
+}
+.pageTitle {
+  	position: absolute;
+  	top: 20px;
+  	left: 51px;
+  	width: 992px;
+  	height: 60px;
+}
+.folderClip {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: #dc901f;
+  	width: 178px;
+  	height: 23px;
+}
+.clip {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 178px;
+  	height: 28px;
+  	color: #fff;
+}
+.background {
+  	position: absolute;
+  	top: 26px;
+  	left: -2px;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(220, 144, 31, 0.6);
+  	box-sizing: border-box;
+  	width: 822px;
+  	height: 140px;
+}
+.orderSeeds {
+  	position: absolute;
+  	top: 0px;
+  	left: 59px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.listItemNameChild {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	border-radius: 10px;
+  	background-color: rgba(136, 136, 136, 0.21);
+  	border: 2px solid #a9a9a9;
+  	box-sizing: border-box;
+  	width: 31px;
+  	height: 31px;
+}
+.listItemName {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 354px;
+  	height: 38px;
+}
+.tuesday31December {
+  	position: absolute;
+  	top: 0px;
+  	left: 47px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 295px;
+  	height: 38px;
+}
+.iconcalendarDays {
+  	position: absolute;
+  	top: 3px;
+  	left: 0px;
+  	width: 31px;
+  	height: 31px;
+  	overflow: hidden;
+}
+.listItemDueDate {
+  	position: absolute;
+  	top: -1px;
+  	left: 231px;
+  	width: 342px;
+  	height: 38px;
+}
+.listItemAssignees {
+  	position: absolute;
+  	top: 3px;
+  	left: 547px;
+  	width: 52px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.listItem {
+  	position: absolute;
+  	top: 39px;
+  	left: 18px;
+  	width: 971px;
+  	height: 38px;
+}
+.listItemDueDate1 {
+  	position: absolute;
+  	top: 0px;
+  	left: 231px;
+  	width: 342px;
+  	height: 38px;
+}
+.listItemAssignees1 {
+  	position: absolute;
+  	top: 3px;
+  	left: 551px;
+  	width: 52px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.listItem1 {
+  	position: absolute;
+  	top: 97px;
+  	left: 18px;
+  	width: 971px;
+  	height: 38px;
+}
+.inProgress {
+  	position: absolute;
+  	top: 114px;
+  	left: 0px;
+  	width: 820px;
+  	height: 164px;
+}
+.folderClip1 {
+  	position: absolute;
+  	top: 2px;
+  	left: 0px;
+  	border-radius: 8px 8px 0px 0px;
+  	background-color: #d13939;
+  	width: 178px;
+  	height: 23px;
+}
+.notStarted {
+  	position: absolute;
+  	top: 0px;
+  	left: 30px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 141px;
+  	height: 28px;
+}
+.clip1 {
+  	width: 178px;
+  	position: relative;
+  	height: 28px;
+  	z-index: 0;
+}
+.background1 {
+  	align-self: stretch;
+  	position: relative;
+  	border-radius: 24px;
+  	background-color: rgba(217, 217, 217, 0.1);
+  	border: 2px solid rgba(209, 57, 57, 0.6);
+  	box-sizing: border-box;
+  	height: 76px;
+  	z-index: 1;
+}
+.listItemDueDate2 {
+  	position: absolute;
+  	top: 0px;
+  	left: 272px;
+  	width: 342px;
+  	height: 38px;
+}
+.listItemAssignees2 {
+  	position: absolute;
+  	top: 5px;
+  	left: 588px;
+  	width: 52px;
+  	height: 31px;
+  	object-fit: cover;
+}
+.listItem2 {
+  	width: 837px;
+  	position: absolute;
+  	margin: 0 !important;
+  	top: 45px;
+  	left: 18px;
+  	height: 38px;
+  	z-index: 2;
+  	color: #181818;
+}
+.toDoItems {
+  	position: absolute;
+  	top: -14px;
+  	left: 0px;
+  	width: 818px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 3px 0px;
+  	box-sizing: border-box;
+  	color: #fff;
+}
+.listsByStatus {
+  	position: absolute;
+  	top: 114px;
+  	left: 43px;
+  	width: 820px;
+  	height: 300px;
+  	font-size: 18px;
+  	color: #181818;
+}
+.deletedTasks {
+  	width: 906px;
+  	position: relative;
+  	border-radius: 24px;
+  	background-color: #f9f9f9;
+  	border: 1px solid #e0e0e0;
+  	box-sizing: border-box;
+  	height: 431px;
+  	overflow: hidden;
+  	flex-shrink: 0;
+}
+.archivedLists {
+  	position: absolute;
+  	top: 193px;
+  	left: 37px;
+  	height: 914px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 10px;
+  	box-sizing: border-box;
+  	gap: 26px;
+  	font-size: 34px;
+}
+.closeWindowChild {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	border-radius: 8px 20px 8px 8px;
+  	background-color: #f8f8f8;
+  	width: 106px;
+  	height: 33px;
+}
+.close {
+  	position: absolute;
+  	top: 4px;
+  	left: 13px;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	width: 56px;
+  	height: 24px;
+}
+.xIcon {
+  	position: absolute;
+  	top: 7px;
+  	left: 73px;
+  	width: 20px;
+  	height: 20px;
+  	overflow: hidden;
+}
+.closeWindow {
+  	position: absolute;
+  	top: 18px;
+  	left: 876px;
+  	width: 106px;
+  	height: 33px;
+  	font-size: 16px;
+  	color: #5c5c5c;
+}
+.recentlyDeleted {
+  	width: 1000px;
+  	position: relative;
+  	border-radius: 40px;
+  	background-color: #fff;
+  	border: 4px solid #f1d7cb;
+  	box-sizing: border-box;
+  	height: 1154px;
+  	flex-shrink: 0;
+}
+.recentlyDeletedContainer {
+  	width: 1512px;
+  	position: relative;
+  	height: 982px;
+  	overflow-y: auto;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 71.5px 256px;
+  	box-sizing: border-box;
+  	max-width: 100%;
+  	max-height: 100%;
+  	overflow: auto;
+  	text-align: left;
+  	font-size: 40px;
+  	color: #724733;
+  	font-family: Inter;
+}
+
