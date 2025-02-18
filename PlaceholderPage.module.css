@@ -1,0 +1,34 @@
+.chooseOrCreate {
+  	position: absolute;
+  	top: 333px;
+  	left: 414px;
+  	display: flex;
+  	font-weight: 500;
+  	align-items: center;
+  	width: 449px;
+  	height: 315px;
+}
+.iconhaze {
+  	position: absolute;
+  	height: 10.18%;
+  	width: 9.17%;
+  	top: 44.09%;
+  	right: 65.44%;
+  	bottom: 45.72%;
+  	left: 25.39%;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 100%;
+}
+.placeholderPage {
+  	width: 100%;
+  	position: relative;
+  	background-color: #fff;
+  	height: 982px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 30px;
+  	color: #a0a0a0;
+  	font-family: Inter;
+}
+
