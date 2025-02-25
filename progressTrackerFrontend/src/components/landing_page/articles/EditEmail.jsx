@@ -16,7 +16,6 @@ const EditEmail = () => {
             height="315"
             src="https://www.youtube.com/embed/T3qH-uY3t-Y"
             title="Editing Your Email Tutorial"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>

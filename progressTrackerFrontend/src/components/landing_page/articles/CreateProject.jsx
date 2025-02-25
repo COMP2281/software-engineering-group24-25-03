@@ -16,7 +16,6 @@ const CreateProject = () => {
           height="315"
           src="https://www.youtube.com/embed/T3qH-uY3t-Y"
           title="Creating a Project Tutorial"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>

@@ -66,7 +66,7 @@ const HelpPage = () => {
                         </button>
                         </li>
                         <li>
-                        <button onClick={() => setActiveSection('uodatePassword')}>
+                        <button onClick={() => setActiveSection('updatePassword')}>
                             Update your password
                         </button>
                         </li>

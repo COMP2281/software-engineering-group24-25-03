@@ -7,7 +7,8 @@ const DeleteProject = () => {
           <li>Go to your dashboard.</li>
           <li>Find the project you want to delete.</li>
           <li>Click on the project settings.</li>
-          <li>Select &quot;Delete Project&quot; and confirm the action.</li>
+          <li>Select &quot;Delete Project&quot;.</li>
+          <li>Type the name of the project for confirmation.</li>
           <li>The project will be permanently removed.</li>
         </ol>
         <div className="video-container">
@@ -16,7 +17,6 @@ const DeleteProject = () => {
             height="315"
             src="https://www.youtube.com/embed/T3qH-uY3t-Y"
             title="Deleting a Project Tutorial"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>

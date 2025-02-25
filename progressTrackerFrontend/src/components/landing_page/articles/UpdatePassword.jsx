@@ -5,7 +5,7 @@ const UpdatePassword = () => {
         <p>This section explains how to change your password.</p>
         <ol>
           <li>Navigate to your account settings.</li>
-          <li>Find the &quot;Password&quot; section.</li>
+          <li>Select the &quot;Password&quot; section.</li>
           <li>Enter your current password.</li>
           <li>Enter and confirm your new password.</li>
           <li>Click &quot;Save Changes&quot; to update your password.</li>
@@ -16,7 +16,6 @@ const UpdatePassword = () => {
             height="315"
             src="https://www.youtube.com/embed/T3qH-uY3t-Y"
             title="Updating Your Password Tutorial"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>

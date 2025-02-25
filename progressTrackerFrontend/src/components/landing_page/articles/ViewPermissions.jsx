@@ -15,7 +15,6 @@ const ViewPermissions = () => {
             height="315"
             src="https://www.youtube.com/embed/T3qH-uY3t-Y"
             title="Viewing Your Permissions Tutorial"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
