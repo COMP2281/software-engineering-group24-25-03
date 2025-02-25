@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/authentication/Login'
 import Home from './components/landing_page/Home';
+import Help from './components/landing_page/Help';
 import ProtectedRoute from './components/authentication/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -20,8 +21,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/> 
-        <Route path="/login" element={<Login/>}/>
+        <Route path='/' element={<ProtectedRoute><Help/></ProtectedRoute>}/> 
+        <Route path="/login" element={<Help/>}/>
       </Routes>
     </Router>
   )
