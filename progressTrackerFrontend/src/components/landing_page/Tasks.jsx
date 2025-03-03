@@ -4,81 +4,87 @@ import { useSelector } from 'react-redux';
 import { Fab } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import CreateTaskModal from './NewTaskModal';
-import { useState } from 'react';
-const Tasks = ({ project }) => {
+import './tasks.css'
+const Tasks = ({ project, projectName }) => {
   const dashboard = useSelector((state) => state.dashboard);
   const tasks = dashboard.tasks[project] || { notStarted: [], inProgress: [], completed: [] };
-
 
   const [openTaskModal, setOpenTaskModal] = React.useState(false);
   const handleOpenTaskModal = () => setOpenTaskModal(true);
   const handleCloseTaskModal = () => setOpenTaskModal(false);
 
-
   return (
-    <div>
-      <Container>
-        <Row>
-          {/* Not Started */}
-          <Col>
+    <div style={{ display: "block", alignItems: "flex-start", justifyContent: "flex-start" }}>
+      <h1>{projectName}</h1>
+      <Container >
+          <Row>
             <Card>
-              <CardTitle>Not Started</CardTitle>
+              <CardTitle className='red-text'>Not Started</CardTitle>
               <CardBody>
                 {tasks.notStarted.length > 0 ? (
-                  <ul>
-                    {tasks.notStarted.map((task, index) => (
-                      <li key={index}>
-                        <strong>{task.name}:</strong> {task.description}
-                      </li>
-                    ))}
-                  </ul>
+                  tasks.notStarted.map((task, index) => (
+                    <Row key={index} className="mb-3">
+                      <Col>
+                        <Card>
+                          <CardBody>
+                            <strong>{task.name}:</strong> {task.description}
+                          </CardBody>
+                        </Card>
+                      </Col>
+                    </Row>
+                  ))
                 ) : (
                   <p>No tasks</p>
                 )}
               </CardBody>
             </Card>
-          </Col>
-
-          {/* In Progress */}
-          <Col>
+          </Row>
+          <br/>
+          <Row >
             <Card>
-              <CardTitle>In Progress</CardTitle>
+              <CardTitle className='orange-text'>In Progress</CardTitle>
               <CardBody>
                 {tasks.inProgress.length > 0 ? (
-                  <ul>
-                    {tasks.inProgress.map((task, index) => (
-                      <li key={index}>
-                        <strong>{task.name}:</strong> {task.description}
-                      </li>
-                    ))}
-                  </ul>
+                  tasks.inProgress.map((task, index) => (
+                    <Row key={index} className="mb-3">
+                      <Col>
+                        <Card>
+                          <CardBody>
+                            <strong>{task.name}:</strong> {task.description}
+                          </CardBody>
+                        </Card>
+                      </Col>
+                    </Row>
+                  ))
                 ) : (
                   <p>No tasks</p>
                 )}
               </CardBody>
             </Card>
-          </Col>
-
-          {/* Completed */}
-          <Col>
+          </Row>      
+          <br/>
+          <Row>
             <Card>
-              <CardTitle>Completed</CardTitle>
+              <CardTitle className="green-text">Completed</CardTitle>
               <CardBody>
                 {tasks.completed.length > 0 ? (
-                  <ul>
-                    {tasks.completed.map((task, index) => (
-                      <li key={index}>
-                        <strong>{task.name}:</strong> {task.description}
-                      </li>
-                    ))}
-                  </ul>
+                  tasks.completed.map((task, index) => (
+                    <Row key={index} className="mb-3">
+                      <Col>
+                        <Card>
+                          <CardBody>
+                            <strong>{task.name}:</strong> {task.description}
+                          </CardBody>
+                        </Card>
+                      </Col>
+                    </Row>
+                  ))
                 ) : (
                   <p>No tasks</p>
                 )}
               </CardBody>
             </Card>
-          </Col>
-        </Row>
+          </Row>
       </Container>
 
       {/* Floating Action Button (FAB) - Positioned at Bottom Right */}
@@ -90,12 +96,13 @@ const Tasks = ({ project }) => {
           bottom: 16,
           right: 16,
         }}
-        onClick={()=>handleOpenTaskModal()}
+        onClick={() => handleOpenTaskModal()}
       >
         <AddIcon />
       </Fab>
+
       <CreateTaskModal handleClose={handleCloseTaskModal} open={openTaskModal} projectId={project}/>
-      </div>
+    </div>
   );
 };
 
