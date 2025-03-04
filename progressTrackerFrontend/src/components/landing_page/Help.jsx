@@ -8,6 +8,7 @@ import TrackProgress from './articles/TrackProgress';
 import UpdatePassword from './articles/UpdatePassword';
 import ViewPermissions from './articles/ViewPermissions';
 import './HelpPage.css'; // Import the separate CSS file
+import Home from './Home';
 
 const HelpPage = () => {
     const [activeSection, setActiveSection] = useState('createProject');
@@ -36,6 +37,7 @@ const HelpPage = () => {
     };
 
     return (
+        <Home>
         <div className="help-page">
             {/* NAVBAR */}
             <aside className="help-sidebar">
@@ -97,6 +99,7 @@ const HelpPage = () => {
             </section>
             {/* FOOTER */}
         </div>
+        </Home>
     );
 };
 
