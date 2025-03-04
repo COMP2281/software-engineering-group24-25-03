@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from './redux/slices/authSlice';
 import HelpPage from './components/landing_page/Help';
+import Settings from "./components/landing_page/Settings.jsx";
 
 function App() {
   const dispatch = useDispatch()
@@ -31,6 +32,7 @@ function App() {
         <Route path="/reports" element={<ProtectedRoute><Report/></ProtectedRoute>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/test" element={<Test/>}/>
+        <Route path="/settings" element={<Settings/>}/>
       </Routes>
     </Router>
   )
