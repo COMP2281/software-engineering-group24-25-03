@@ -102,6 +102,29 @@ export const createTask = createAsyncThunk(
   }
 );
 
+// 🔹 Update Task Status
+export const updateTaskStatus = createAsyncThunk(
+  'api/task/updateStatus',
+  async ({ project, task_id, status }, { getState, rejectWithValue }) => {
+    const token = getState().auth.accessToken;
+    try {
+      const response = await api.post(
+        `/api/projectInfo/${project}/task`,
+        { task_id: task_id, status },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      // Expect a response like { status: <newStatus> }
+      if (response.data.status) {
+        return { project, task_id, status: response.data.status };
+      } else {
+        return rejectWithValue(response.data);
+      }
+    } catch (error) {
+      return rejectWithValue(error.response?.data || 'Failed to update task status');
+    }
+  }
+);
+
 const dashboardSlice = createSlice({
   name: 'lists',
   initialState: {
@@ -121,10 +144,10 @@ const dashboardSlice = createSlice({
       })
       .addCase(fetchLists.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        if(action.payload.lists){
+        if (action.payload.lists) {
           state.lists = action.payload.lists;
-        }else{
-          state.lists = []
+        } else {
+          state.lists = [];
         }
         Object.keys(action.payload).forEach((key) => {
           if (key !== 'lists') {
@@ -158,7 +181,7 @@ const dashboardSlice = createSlice({
         state.status = 'succeeded';
         state.lists.push({
           listId: action.payload.id,
-          listName: action.payload.name
+          listName: action.payload.name,
         });
       })
       .addCase(createList.rejected, (state, action) => {
@@ -173,14 +196,12 @@ const dashboardSlice = createSlice({
       .addCase(createProject.fulfilled, (state, action) => {
         state.status = 'succeeded';
         const { listId, project } = action.payload;
-
         if (!state.projects[listId]) {
           state.projects[listId] = [];
         }
-
         state.projects[listId].push({
           projectId: project.id,
-          projectName: project.name
+          projectName: project.name,
         });
       })
       .addCase(createProject.rejected, (state, action) => {
@@ -195,14 +216,45 @@ const dashboardSlice = createSlice({
       .addCase(createTask.fulfilled, (state, action) => {
         state.status = 'succeeded';
         const { projectId, task } = action.payload;
-
         if (!state.tasks[projectId]) {
           state.tasks[projectId] = { notStarted: [], inProgress: [], completed: [] };
         }
-
-        state.tasks[projectId].notStarted.push(task); // New tasks start as "Not Started"
+        // New tasks start as "Not Started"
+        state.tasks[projectId].notStarted.push(task);
       })
       .addCase(createTask.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      })
+
+      // 🔹 Update Task Status Reducers
+      .addCase(updateTaskStatus.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(updateTaskStatus.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        const { project, task_id, status } = action.payload;
+        const projectTasks = state.tasks[project];
+        // Remove the task from whichever list it is in
+        let task;
+        ['notStarted', 'inProgress', 'completed'].forEach((list) => {
+          const index = projectTasks[list].findIndex(t => t.id === task_id);
+          if (index !== -1) {
+            task = projectTasks[list].splice(index, 1)[0];
+          }
+        });
+        // Place the task in the new status list
+        
+        if (status === 'complete') {
+          projectTasks.completed.push(task);
+        } else if (status === 'starting') {
+          projectTasks.notStarted.push(task);
+        } else if (status === 'started') {
+          projectTasks.inProgress.push(task);
+        }
+      })
+      .addCase(updateTaskStatus.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       });

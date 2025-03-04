@@ -2,10 +2,13 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/authentication/Login'
 import Home from './components/landing_page/Home';
+import Test from './components/landing_page/Test';
+import Register from './components/authentication/Register';
 import ProtectedRoute from './components/authentication/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { authRefresh } from './redux/slices/authSlice';
+
 function App() {
   const dispatch = useDispatch()
   const authenticated = useSelector((state) => state.auth.authenticated)
@@ -22,6 +25,8 @@ function App() {
       <Routes>
         <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/> 
         <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/test" element={<Test/>}/>
       </Routes>
     </Router>
   )

@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, Serializer, IntegerField, CharField
 from .models import List, Project, ListMember, Task
 
 class ListSerializer(ModelSerializer):
@@ -32,5 +32,9 @@ class ProjectMemberSerializer(ModelSerializer):
 class TaskSerializer(ModelSerializer):
     class Meta:
         model = Task
-        fields = ('name', 'description', 'project', 'status')
+        fields = ('id', 'name', 'description', 'project', 'status')
         extra_kwargs = {'project': {'required': False, 'allow_null': True}}
+
+class TaskIdSeriailizer(Serializer):
+    task_id = IntegerField()
+    status = CharField(max_length=20)

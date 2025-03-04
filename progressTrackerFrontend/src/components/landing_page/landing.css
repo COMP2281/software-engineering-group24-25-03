@@ -1,0 +1,40 @@
+.dashboard-button {
+    background: #d1e7dd !important;
+    color: #2c7065 !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+    font-weight: bold !important;
+}
+
+.project-alignment{ 
+    text-align: "left" !important;
+    justify-content: "flex-start" !important;
+    width: "100%" !important;
+}
+
+.accordion-button {
+    color: #714834 !important; /* Change text color */
+    border-radius: 15px !important; /* Make buttons rounded */
+    padding: 10px 15px; /* Adjust padding */
+}
+
+.accordion-button:not(.collapsed) {
+    color: white !important; /* Keep text color when expanded */
+    border-radius: 10px !important; /* Keep rounded when open */
+    background-color: #714834 !important; /* Make the button red when expanded */
+}
+
+.accordion-item {
+    border: none !important; /* Remove borders */
+    overflow: hidden; /* Prevent content from breaking border-radius */
+}
+
+.accordion-button:focus {
+    box-shadow: none !important; /* Remove focus outline */
+}
+
+.accordion-button:hover {
+    background-color: #714834 !important; /* Optional: Add a hover effect */
+    color: white !important; /* White text color on hover */
+}
+

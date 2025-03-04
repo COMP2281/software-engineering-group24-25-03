@@ -17,3 +17,17 @@ class ProfileSerializer(ModelSerializer):
 
     def get_user(self, obj):
         return {"id": obj.user.id, "username": obj.user.username}
+    
+
+class RegisterUserSerializer(ModelSerializer):
+    # recaptcha = CharField(max_length=1000, required=True)
+
+    class Meta:
+        model = User
+        # fields = ('username', 'password', 'first_name', 'last_name', 'email', 'dob', 'recaptcha',)
+        fields = ('username', 'password', 'first_name', 'last_name', 'email')
+        extra_kwargs = {
+            'email': {'required': True, 'allow_blank': False},
+            'first_name': {'required': True, 'allow_blank': False},
+            'last_name': {'required': True, 'allow_blank': False},
+        }
