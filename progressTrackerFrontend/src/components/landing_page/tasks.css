@@ -1,9 +1,9 @@
 .red-text{
-    color: red;
+    color: red !important;
 }
 .orange-text{
-    color: orange;
+    color: orange !important;
 }
 .green-text{
-    color: green;
+    color: green !important;
 }

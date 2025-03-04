@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from .models import ListMember, ProjectMember, List, Project, Task
-from .serializers import ListSerializer, ProjectSerializer, ListCreateSerializer, ListMemberSerializer, ProjectMemberSerializer, TaskSerializer
+from .serializers import ListSerializer, ProjectSerializer, ListCreateSerializer, ListMemberSerializer, ProjectMemberSerializer, TaskSerializer, TaskIdSeriailizer
 from authentication.serializers import ProfileSerializer
 from authentication.models import UserProfile
 from rest_framework.response import Response
@@ -105,3 +105,34 @@ class TaskView(GenericAPIView):
         task_serializer.is_valid(raise_exception=True)
         task_serializer.save(project=project)
         return Response(task_serializer.data)
+    
+class TaskProgess(GenericAPIView):
+    serializer_class = TaskIdSeriailizer
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, project_id):
+        seriailizer = self.serializer_class(data=request.data)
+        seriailizer.is_valid(raise_exception=True)
+        task_id = seriailizer.validated_data['task_id']
+        status = seriailizer.validated_data['status']
+        task = get_object_or_404(Task, id=task_id)
+        project = get_object_or_404(Project, id=project_id)
+        if ProjectMember.objects.filter(user=request.user, project=project) == []:
+            return Response({"error": "You are not a memeber of this project"})
+        
+        if status == 'complete':
+            task.status = 2
+
+        elif status == 'started':
+            task.status = 1
+        
+        elif status == 'starting':
+            task.status = 0
+        
+        else:
+            return Response({"error": "invalid status provided"})
+        
+        task.save()
+        return Response({"status": status})
+        
+
