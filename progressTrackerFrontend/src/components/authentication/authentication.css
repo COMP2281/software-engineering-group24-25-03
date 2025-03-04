@@ -1,0 +1,45 @@
+.aut-html, .auth-body {
+    height: 100%;
+    margin: 0;
+    background: rgba(217, 217, 217, 0.30);
+    backdrop-filter: blur(150px);
+    -webkit-backdrop-filter: blur(150px);
+  }
+  
+  .auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Enlarged login card style */
+  .card-style {
+    width: 40%;
+    max-width: 100%;  /* Increased maximum width for a larger box */
+    padding: 5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Other styles remain unchanged */
+  .center-text {
+    color: #724733;
+    font-family: Inter, sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .login-button {
+    border-radius: 24px;
+    border: 1px solid rgba(124, 255, 161, 0.23);
+    background: rgba(21, 157, 103, 0.17);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .error-msg {
+    color: red;
+  }

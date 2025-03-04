@@ -26,6 +26,11 @@ import { fetchProjectTasks } from '../../redux/slices/dashboardSlice';
 import { useState } from 'react';
 import ListModal from './NewListModel';
 import ProjectModal from './NewProjectModal';
+import SettingsIcon from '@mui/icons-material/Settings';
+import Person2Icon from '@mui/icons-material/Person2';
+import PieChartIcon from '@mui/icons-material/PieChart';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
 const drawerWidth = 290;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -88,6 +93,8 @@ export default function Home() {
   const user_details = useSelector((state) => state.userDetails);
   const dashboard = useSelector((state) => state.dashboard)
   const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProjectName, setSelectedProjectName] = useState("Your Tasks");
+
   useEffect(() => {
     if (user_details.status === "idle") {
       dispatch(fetchUserDetails());
@@ -113,9 +120,10 @@ export default function Home() {
     setOpen(false);
   };
 
-  const onTaskSelect = (id) => {
+  const onTaskSelect = (id, name) => {
     dispatch(fetchProjectTasks(id))
     setSelectedProject(id)
+    setSelectedProjectName(name)
   }
   // handles list modal
   const [openListModal, setOpenListModal] = React.useState(false);
@@ -126,7 +134,6 @@ export default function Home() {
   const handleOpenProjectModal = () => setOpenProjectModal(true);
   const handleCloseProjectModal = () => setOpenProjectModal(false);
   const [selectedList, setSelectedList] = useState(null);
-
   // accordian state
   const [activeKey, setActiveKey] = useState("0");
   return (
@@ -149,7 +156,7 @@ export default function Home() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Your Tasks
+            {selectedProjectName}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -160,6 +167,7 @@ export default function Home() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            backgroundColor: 'whitesmoke',
           },
         }}
         variant="persistent"
@@ -173,30 +181,64 @@ export default function Home() {
         </DrawerHeader>
         <Divider />
         <List>
-          <Container className="mt-4">
-            <Row className="align-items-center">
-              <Col xs="auto">
-                <Avatar
-                  alt="Profile Picture"
-                  src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}
-                  sx={{ width: 56, height: 56 }} // Adjust size
-                />
-              </Col>
-              <Col>
-                <h4 className="mb-0">{user_details.status === "loading" ? "Loading..." : user_details.user?.username}</h4>
-              </Col>
-            </Row>
-            <hr/>
-            <Row>              
-                <Col><Button variant="outlined">Setting</Button></Col>
-                <Col><Button variant="outlined">Pernal</Button></Col>
-            </Row>
-            <br/>
-            <Row>              
-                <Col><Button variant="outlined">Repots</Button></Col>
-                <Col><Button variant="outlined">Helssp</Button></Col>
-            </Row>
-          </Container>
+        <Container className="mt-4">
+          <Row className="align-items-center">
+            <Col xs="auto">
+              <Avatar
+                alt="Profile Picture"
+                src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}
+                sx={{ width: 56, height: 56, border:4, borderColor: "#16675e" }}
+              />
+            </Col>
+            <Col>
+              <h4 className="mb-0" style={{color: "#16675e", fontWeight: "bold"}}>{user_details.status === "loading" ? "Loading..." : user_details.user?.username}</h4>
+            </Col>
+          </Row>
+          <br />
+          <Row className="g-2">
+            <Col className="d-grid">
+              <Button
+                variant="contained"
+                className="dashboard-button"
+
+              >
+                <SettingsIcon style={{fontSize: 40}}/> Settings
+              </Button>
+            </Col>
+            <Col className="d-grid">
+              <Button
+                variant="contained"
+                className="dashboard-button"
+              >
+                <Person2Icon style={{fontSize: 40}}/>Personal
+              </Button>
+            </Col>
+          </Row>
+          <br />
+          <Row className="g-2">
+            <Col className="d-grid">
+              <Button
+                variant="contained"
+                className="dashboard-button"
+              >
+                <PieChartIcon style={{fontSize: 40}}/>
+                Reports
+              </Button>
+            </Col>
+            <Col className="d-grid">
+              <Button
+                variant="contained"
+                className="dashboard-button"
+
+              >
+                <HelpOutlineIcon style={{fontSize: 40}}/>
+                Help
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+
+
         </List>
         <Divider />
         <Button varient='text' onClick={()=>handleOpenListModal()}>+ New List</Button>
@@ -211,12 +253,17 @@ export default function Home() {
                     <Container>
                       {dashboard.projects[list.listId].map((project) => (
                         <Row key={project.projectId}>
-                          <Button variant="text" onClick={() => onTaskSelect(project.projectId)}>
+                          <Button   sx={{
+                                      color: "#887469",
+                                      textAlign: "left", 
+                                      justifyContent: "flex-start", 
+                                      width: "100%",
+                                    }}
+                          variant="text" onClick={() => onTaskSelect(project.projectId, project.projectName)}>
                             📄 {project.projectName}
                           </Button>
                         </Row>
                       ))}
-                      <hr/>
                       <Button variant='text' onClick={() => {
                         handleOpenProjectModal();
                         setSelectedList(list.listId);
@@ -240,12 +287,12 @@ export default function Home() {
         <List>
         </List>
       </Drawer>
-      <Main open={open}>
+      <Main style={{width: "100%"}} open={open}>
         <DrawerHeader/>
         <ListModal handleClose={handleCloseListModal} open={openListModal}/>
         <ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList}/>
-        {Object.keys(dashboard.tasks).length === 0 ? "Select A Project" : <Tasks project={selectedProject} />}
-        </Main>
+        {Object.keys(dashboard.tasks).length === 0 ? "Select A Project" : <Tasks project={selectedProject} projectName={selectedProjectName} />}
+      </Main>
     </Box>
   );
 }
