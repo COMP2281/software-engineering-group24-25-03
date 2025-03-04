@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import Home from './Home';
 
 const data = [
   { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
@@ -24,7 +25,7 @@ const data = [
 
 const ReportPage = () => {
   return (
-    <div>
+    <Home>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <h1>Reports</h1>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
@@ -87,7 +88,7 @@ const ReportPage = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </Home>
   );
 };
 
