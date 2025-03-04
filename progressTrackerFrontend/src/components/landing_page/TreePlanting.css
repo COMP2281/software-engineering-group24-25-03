@@ -1,0 +1,15 @@
+.min-vh-100 {
+    min-height: 100vh;
+  }
+  
+  @media (max-width: 768px) {
+    .MuiDrawer-paper {
+      width: 100% !important; 
+    }
+    .flex-grow-1 {
+      width: 100% !important;
+    }
+    .MuiBox-root {
+      flex-direction: column !important;
+    }
+  }
