@@ -32,7 +32,7 @@ function App() {
         <Route path="/reports" element={<ProtectedRoute><Report/></ProtectedRoute>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/test" element={<Test/>}/>
-        <Route path="/settings" element={<Settings/>}/>
+        <Route path="/settings" element={<ProtectedRoute><Settings/></ProtectedRoute>}/>
       </Routes>
     </Router>
   )
