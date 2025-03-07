@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
-import "./authentication.css";
-import { Card, Row, Col, Container } from "react-bootstrap";
-import { Input } from "@mui/material";
 import { Link } from "react-router-dom";
+import './authentications.css'; // Reusing the same CSS file for consistency
 
-export default function Register() {
+const Register = () => {
   // Component state for the input fields
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
@@ -15,11 +13,11 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const error_msg = useSelector((state) => state.auth.error);
-
+  
   const onSubmit = async (e) => {
     e.preventDefault();
     // Basic client-side validation
@@ -27,94 +25,104 @@ export default function Register() {
       console.error("Passwords do not match.");
       return;
     }
-    // Dispatch the register action (adjust as needed for your backend)
+    // Dispatch the register action
     const result = await dispatch(
       register({ first_name, last_name, email, username, password })
     );
     if (register.fulfilled.match(result)) {
-        navigate("/login");
+      navigate("/login");
     }
   };
 
   return (
-    <Container className="container-style">
-      <Card className="card-style">
-        <h1 className="center-text">Register</h1>
-        <hr />
-        <small className="error-msg">{error_msg}</small>
+    <div className="auth-container">
+      <div className="auth-card">
+        <h1 className="auth-title">Register</h1>
+        
         <form onSubmit={onSubmit}>
-          <Col>
-            <Row>
-              <Input
-                placeholder="First Name"
-                value={first_name}
-                onChange={(e) => setFirstName(e.target.value)}
-                fullWidth
-                sx={{ mt: 2, mb: 2 }}
-              />
-            </Row>
-            <Row>
-              <Input
-                placeholder="Last Name"
-                value={last_name}
-                onChange={(e) => setLastName(e.target.value)}
-                fullWidth
-                sx={{ mt: 2, mb: 2 }}
-              />
-            </Row>
-            <Row>
-              <Input
-                placeholder="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                fullWidth
-                sx={{ mt: 2, mb: 2 }}
-              />
-            </Row>
-            <Row>
-              <Input
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                fullWidth
-                sx={{ mt: 2, mb: 2 }}
-              />
-            </Row>
-            <Row>
-              <Input
-                placeholder="Password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                fullWidth
-                sx={{ mt: 2, mb: 2 }}
-              />
-            </Row>
-            <Row>
-              <Input
-                placeholder="Confirm Password"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                fullWidth
-                sx={{ mt: 2, mb: 2 }}
-              />
-            </Row>
-            <Row>
-              <button className="login-button" type="submit">
-                Register
-              </button>
-            </Row>
-            <hr />
-            <Row>
-              <p>
-                Already have an account? <Link to="/login">Login</Link>
-              </p>
-            </Row>
-          </Col>
+          {error_msg && <div className="error-message">{error_msg}</div>}
+          
+          <div className="form-group">
+            <label className="form-label">First Name</label>
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Enter your first name"
+              value={first_name}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Last Name</label>
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Enter your last name"
+              value={last_name}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Email</label>
+            <input
+              type="email"
+              className="form-input"
+              placeholder="email@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Username</label>
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Choose a username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Password</label>
+            <input
+              type="password"
+              className="form-input"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Confirm Password</label>
+            <input
+              type="password"
+              className="form-input"
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          
+          <div className="form-actions">
+            <button type="submit" className="submit-button">
+              Register
+            </button>
+          </div>
+          
+          <div className="form-footer">
+            <p>
+              Already have an account? <Link to="/login" className="auth-link">Login</Link>
+            </p>
+          </div>
         </form>
-      </Card>
-    </Container>
+      </div>
+    </div>
   );
-}
+};
+
+export default Register;
