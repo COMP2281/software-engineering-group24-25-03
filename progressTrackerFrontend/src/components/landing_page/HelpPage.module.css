@@ -1,0 +1,87 @@
+/* Scoped Container styles */
+.helpPage {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.helpPage h3 {
+  text-align: left;
+}
+
+/* Scoped Sidebar styles */
+.helpSidebar {
+  position: absolute;
+  top: 100px;
+  right: -200px;
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: right 0.3s ease;
+}
+
+.helpSidebar:hover {
+  right: 0;
+}
+
+.helpSidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.helpSidebar nav ul li {
+  margin-bottom: 10px;
+}
+
+.helpSidebar button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.helpSidebar button:hover {
+  text-decoration: underline;
+}
+
+/* Scoped Main content styles */
+.helpContent {
+  flex: 1;
+  padding: 40px;
+}
+
+/* Scoped Article styles */
+.helpArticle {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.helpArticle h2 {
+  margin-top: 0;
+}
+
+.helpArticle ol {
+  margin-left: 20px;
+}
+
+/* Scoped Video container styles */
+.videoContainer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.videoContainer iframe {
+  max-width: 100%;
+  border-radius: 15px;
+  border: none;
+}
