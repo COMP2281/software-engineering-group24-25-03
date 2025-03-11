@@ -5,24 +5,15 @@ import * as React from 'react';
 import {useEffect, useState} from 'react';
 import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import {Avatar, Button, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Button, FormControlLabel, FormGroup, Input, Switch} from '@mui/material';
+import {Card, CardBody, CardTitle, Container, Row} from 'react-bootstrap';
 import {fetchLists} from '../../redux/slices/dashboardSlice';
-import EmailIcon from '@mui/icons-material/Email';
-import FingerprintIcon from '@mui/icons-material/Fingerprint';
-import PersonIcon from '@mui/icons-material/Person';
-import SettingsPage from './SettingsPage.jsx'
 import Home from "./Home.jsx";
 
 /*
@@ -95,22 +86,22 @@ const DrawerHeader = styled('div')(({theme}) => ({
 }));
 
 export default function Settings() {
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+
   const dispatch = useDispatch()
   const user_details = useSelector((state) => state.userDetails);
-  const dashboard = useSelector((state) => state.dashboard)
 
   useEffect(() => {
     if (user_details.status === "idle") {
       dispatch(fetchUserDetails());
     }
   }, [user_details.status, dispatch]);
-
-
-  useEffect(() => {
-    if (dashboard.status === 'idle') {
-      dispatch(fetchLists());
-    }
-  }, [dashboard.status, dispatch]);
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -123,11 +114,17 @@ export default function Settings() {
     setOpen(false);
   };
 
-  const [getSelectedPage, setSelectedPage] = useState("notifications");
+  const onSubmit = async (e) => {
+    e.preventDefault()
 
-  const onPageSelect = (id) => {
-    setSelectedPage(id)
-  }
+    const result = await dispatch(
+      updateAccountSettings({first_name, last_name, email, username})
+    );
+
+    if (updateAccountSettings.fulfilled.match(result)) {
+      // do summin
+    }
+  };
 
   return (
     <Home>
@@ -154,87 +151,94 @@ export default function Settings() {
             </Typography>
           </Toolbar>
         </AppBar>
-        {/*<Drawer*/}
-        {/*  sx={{*/}
-        {/*    width: drawerWidth,*/}
-        {/*    flexShrink: 0,*/}
-        {/*    '& .MuiDrawer-paper': {*/}
-        {/*      width: drawerWidth,*/}
-        {/*      boxSizing: 'border-box',*/}
-        {/*    },*/}
-        {/*  }}*/}
-        {/*  variant="persistent"*/}
-        {/*  anchor="left"*/}
-        {/*  open={open}*/}
-        {/*>*/}
-        {/*  <DrawerHeader>*/}
-        {/*    <IconButton onClick={handleDrawerClose}>*/}
-        {/*      {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}*/}
-        {/*    </IconButton>*/}
-        {/*  </DrawerHeader>*/}
-        {/*  <Divider/>*/}
-        {/*  <List>*/}
-        {/*    <Container className="mt-4">*/}
-        {/*      <Row className="align-items-center">*/}
-        {/*        <Col xs="auto">*/}
-        {/*          <Avatar*/}
-        {/*            alt="Profile Picture"*/}
-        {/*            src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}*/}
-        {/*            sx={{width: 56, height: 56}} // Adjust size*/}
-        {/*          />*/}
-        {/*        </Col>*/}
-        {/*        <Col>*/}
-        {/*          <h4*/}
-        {/*            className="mb-0">{user_details.status === "loading" ? "Loading..." : user_details.user?.username}</h4>*/}
-        {/*        </Col>*/}
-        {/*      </Row>*/}
-        {/*      <hr/>*/}
-        {/*      <Row>*/}
-        {/*        <Col><Button variant="outlined">Setting</Button></Col>*/}
-        {/*        <Col><Button variant="outlined">Pernal</Button></Col>*/}
-        {/*      </Row>*/}
-        {/*      <br/>*/}
-        {/*      <Row>*/}
-        {/*        <Col><Button variant="outlined">Repots</Button></Col>*/}
-        {/*        <Col><Button variant="outlined">Helssp</Button></Col>*/}
-        {/*      </Row>*/}
-        {/*    </Container>*/}
-        {/*  </List>*/}
-        {/*  <Divider/>*/}
 
-        {/*  <List>*/}
-        {/*    <ListItem disablePadding>*/}
-        {/*      <ListItemButton onClick={() => onPageSelect("manage_account")}>*/}
-        {/*        <ListItemIcon>*/}
-        {/*          <PersonIcon/>*/}
-        {/*        </ListItemIcon>*/}
-        {/*        <ListItemText primary="Manage Account"/>*/}
-        {/*      </ListItemButton>*/}
-        {/*    </ListItem>*/}
-        {/*    <ListItem disablePadding>*/}
-        {/*      <ListItemButton onClick={() => onPageSelect("notifications")}>*/}
-        {/*        <ListItemIcon>*/}
-        {/*          <EmailIcon/>*/}
-        {/*        </ListItemIcon>*/}
-        {/*        <ListItemText primary="Notifications"/>*/}
-        {/*      </ListItemButton>*/}
-        {/*    </ListItem>*/}
-        {/*    <ListItem disablePadding>*/}
-        {/*      <ListItemButton onClick={() => onPageSelect("security")}>*/}
-        {/*        <ListItemIcon>*/}
-        {/*          <FingerprintIcon/>*/}
-        {/*        </ListItemIcon>*/}
-        {/*        <ListItemText primary="Security"/>*/}
-        {/*      </ListItemButton>*/}
-        {/*    </ListItem>*/}
-        {/*  </List>*/}
-        {/*</Drawer>*/}
         <Main open={open}>
-          {/*<DrawerHeader/>*/}
-          {/*<ListModal handleClose={handleCloseListModal} open={openListModal}/>*/}
-          {/*<ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList}/>*/}
-          {/*{Object.keys(dashboard.tasks).length === 0 ? "Select A Project" : <Tasks project={selectedProject}/>}*/}
-          <SettingsPage page={getSelectedPage}/>
+          <Container>
+            <Row>
+              <Card>
+                <CardTitle>Manage Account</CardTitle>
+                <CardBody>
+                  <form onSubmit={onSubmit}>
+                    <Input
+                      placeholder="First Name"
+                      value={first_name === "" ? user_details.user?.first_name : first_name}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                    />
+                    <Input
+                      placeholder="Last Name"
+                      value={user_details.user?.last_name}
+                      onChange={(e) => setLastName(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                    />
+                    <Input
+                      placeholder="Email"
+                      type="email"
+                      value={user_details.user?.email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                    />
+                    <Input
+                      placeholder="Username"
+                      value={username === "" ? user_details.user?.username : username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                      type="filled"
+                    />
+                    <Button type="submit" variant="contained">Confirm Changes</Button>
+                  </form>
+                </CardBody>
+              </Card>
+            </Row>
+            <br/>
+            <Row>
+              <Card>
+                <CardTitle>Notifications</CardTitle>
+                <CardBody>
+                  <form>
+                    <FormGroup>
+                      <FormControlLabel control={<Switch defaultChecked />} label="Send Email Notifcations" />
+                    </FormGroup>
+                  </form>
+                </CardBody>
+              </Card>
+            </Row>
+            <br/>
+            <Row>
+              <Card>
+                <CardTitle>Security</CardTitle>
+                <CardBody>
+                  <form>
+                    <Input
+                      placeholder="Current Password"
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                    />
+                    <Input
+                      placeholder="New Password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                    />
+                    <Input
+                      placeholder="Confirm New Password"
+                      value={confirmNewPassword}
+                      onChange={(e) => setConfirmNewPassword(e.target.value)}
+                      fullWidth
+                      sx={{mt: 2, mb: 2}}
+                    />
+                  </form>
+                </CardBody>
+              </Card>
+            </Row>
+          </Container>
         </Main>
       </Box>
     </Home>
