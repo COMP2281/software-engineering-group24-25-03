@@ -23,6 +23,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsPage from './SettingsPage.jsx'
+import Home from "./Home.jsx";
 
 /*
   manage account
@@ -122,118 +123,120 @@ export default function Settings() {
     setOpen(false);
   };
 
-  const [getSelectedPage, setSelectedPage] = useState("whaaa");
+  const [getSelectedPage, setSelectedPage] = useState("notifications");
 
   const onPageSelect = (id) => {
     setSelectedPage(id)
   }
 
   return (
-    <Box sx={{display: 'flex'}}>
-      <CssBaseline/>
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                mr: 2,
-              },
-              open && {display: 'none'},
-            ]}
-          >
-            <MenuIcon/>
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Settings
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
-          </IconButton>
-        </DrawerHeader>
-        <Divider/>
-        <List>
-          <Container className="mt-4">
-            <Row className="align-items-center">
-              <Col xs="auto">
-                <Avatar
-                  alt="Profile Picture"
-                  src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}
-                  sx={{width: 56, height: 56}} // Adjust size
-                />
-              </Col>
-              <Col>
-                <h4
-                  className="mb-0">{user_details.status === "loading" ? "Loading..." : user_details.user?.username}</h4>
-              </Col>
-            </Row>
-            <hr/>
-            <Row>
-              <Col><Button variant="outlined">Setting</Button></Col>
-              <Col><Button variant="outlined">Pernal</Button></Col>
-            </Row>
-            <br/>
-            <Row>
-              <Col><Button variant="outlined">Repots</Button></Col>
-              <Col><Button variant="outlined">Helssp</Button></Col>
-            </Row>
-          </Container>
-        </List>
-        <Divider/>
+    <Home>
+      <Box sx={{display: 'flex'}}>
+        <CssBaseline/>
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={[
+                {
+                  mr: 2,
+                },
+                open && {display: 'none'},
+              ]}
+            >
+              <MenuIcon/>
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Settings
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        {/*<Drawer*/}
+        {/*  sx={{*/}
+        {/*    width: drawerWidth,*/}
+        {/*    flexShrink: 0,*/}
+        {/*    '& .MuiDrawer-paper': {*/}
+        {/*      width: drawerWidth,*/}
+        {/*      boxSizing: 'border-box',*/}
+        {/*    },*/}
+        {/*  }}*/}
+        {/*  variant="persistent"*/}
+        {/*  anchor="left"*/}
+        {/*  open={open}*/}
+        {/*>*/}
+        {/*  <DrawerHeader>*/}
+        {/*    <IconButton onClick={handleDrawerClose}>*/}
+        {/*      {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}*/}
+        {/*    </IconButton>*/}
+        {/*  </DrawerHeader>*/}
+        {/*  <Divider/>*/}
+        {/*  <List>*/}
+        {/*    <Container className="mt-4">*/}
+        {/*      <Row className="align-items-center">*/}
+        {/*        <Col xs="auto">*/}
+        {/*          <Avatar*/}
+        {/*            alt="Profile Picture"*/}
+        {/*            src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}*/}
+        {/*            sx={{width: 56, height: 56}} // Adjust size*/}
+        {/*          />*/}
+        {/*        </Col>*/}
+        {/*        <Col>*/}
+        {/*          <h4*/}
+        {/*            className="mb-0">{user_details.status === "loading" ? "Loading..." : user_details.user?.username}</h4>*/}
+        {/*        </Col>*/}
+        {/*      </Row>*/}
+        {/*      <hr/>*/}
+        {/*      <Row>*/}
+        {/*        <Col><Button variant="outlined">Setting</Button></Col>*/}
+        {/*        <Col><Button variant="outlined">Pernal</Button></Col>*/}
+        {/*      </Row>*/}
+        {/*      <br/>*/}
+        {/*      <Row>*/}
+        {/*        <Col><Button variant="outlined">Repots</Button></Col>*/}
+        {/*        <Col><Button variant="outlined">Helssp</Button></Col>*/}
+        {/*      </Row>*/}
+        {/*    </Container>*/}
+        {/*  </List>*/}
+        {/*  <Divider/>*/}
 
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => onPageSelect("manage_account")}>
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText primary="Manage Account" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => onPageSelect("notifications")}>
-              <ListItemIcon>
-                <EmailIcon />
-              </ListItemIcon>
-              <ListItemText primary="Notifications" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => onPageSelect("security")}>
-              <ListItemIcon>
-                <FingerprintIcon />
-              </ListItemIcon>
-              <ListItemText primary="Security" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </Drawer>
-      <Main open={open}>
-        {/*<DrawerHeader/>*/}
-        {/*<ListModal handleClose={handleCloseListModal} open={openListModal}/>*/}
-        {/*<ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList}/>*/}
-        {/*{Object.keys(dashboard.tasks).length === 0 ? "Select A Project" : <Tasks project={selectedProject}/>}*/}
-        <SettingsPage page={getSelectedPage} />
-      </Main>
-    </Box>
+        {/*  <List>*/}
+        {/*    <ListItem disablePadding>*/}
+        {/*      <ListItemButton onClick={() => onPageSelect("manage_account")}>*/}
+        {/*        <ListItemIcon>*/}
+        {/*          <PersonIcon/>*/}
+        {/*        </ListItemIcon>*/}
+        {/*        <ListItemText primary="Manage Account"/>*/}
+        {/*      </ListItemButton>*/}
+        {/*    </ListItem>*/}
+        {/*    <ListItem disablePadding>*/}
+        {/*      <ListItemButton onClick={() => onPageSelect("notifications")}>*/}
+        {/*        <ListItemIcon>*/}
+        {/*          <EmailIcon/>*/}
+        {/*        </ListItemIcon>*/}
+        {/*        <ListItemText primary="Notifications"/>*/}
+        {/*      </ListItemButton>*/}
+        {/*    </ListItem>*/}
+        {/*    <ListItem disablePadding>*/}
+        {/*      <ListItemButton onClick={() => onPageSelect("security")}>*/}
+        {/*        <ListItemIcon>*/}
+        {/*          <FingerprintIcon/>*/}
+        {/*        </ListItemIcon>*/}
+        {/*        <ListItemText primary="Security"/>*/}
+        {/*      </ListItemButton>*/}
+        {/*    </ListItem>*/}
+        {/*  </List>*/}
+        {/*</Drawer>*/}
+        <Main open={open}>
+          {/*<DrawerHeader/>*/}
+          {/*<ListModal handleClose={handleCloseListModal} open={openListModal}/>*/}
+          {/*<ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList}/>*/}
+          {/*{Object.keys(dashboard.tasks).length === 0 ? "Select A Project" : <Tasks project={selectedProject}/>}*/}
+          <SettingsPage page={getSelectedPage}/>
+        </Main>
+      </Box>
+    </Home>
   );
 }
