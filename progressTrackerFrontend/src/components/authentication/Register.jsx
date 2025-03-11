@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import './authentications.css'; // Reusing the same CSS file for consistency
+import './authentication.css'; // Reusing the same CSS file for consistency
 
 const Register = () => {
   // Component state for the input fields
