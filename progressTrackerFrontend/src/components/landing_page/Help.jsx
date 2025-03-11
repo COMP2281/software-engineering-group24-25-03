@@ -39,7 +39,6 @@ const HelpPage = () => {
     return (
         <Home>
         <div className="help-page">
-            {/* NAVBAR */}
             <aside className="help-sidebar">
                 <nav>
                     <h3>Projects</h3>
@@ -97,7 +96,6 @@ const HelpPage = () => {
             <section className="help-content">
                 {renderArticle()}
             </section>
-            {/* FOOTER */}
         </div>
         </Home>
     );
