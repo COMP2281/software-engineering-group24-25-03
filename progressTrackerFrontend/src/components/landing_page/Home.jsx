@@ -30,6 +30,12 @@ import PieChartIcon from '@mui/icons-material/PieChart';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { fetchUserDetails } from "../../redux/slices/userDetailsSlice";
 import { useLocation, useNavigate } from 'react-router-dom';
+// Import new components
+import Archive from './Archive';
+import RecentlyDeletedContainer from './RecentlyDeletedContainer';
+// Import icons for the new features
+import ArchiveIcon from '@mui/icons-material/Archive';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const drawerWidth = 290;
 
@@ -72,6 +78,10 @@ export default function Home({ children }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedProjectName, setSelectedProjectName] = useState("Your Tasks");
   const location = useLocation();
+  
+  // Add state for Archive and Recently Deleted
+  const [showArchive, setShowArchive] = useState(false);
+  const [showRecentlyDeleted, setShowRecentlyDeleted] = useState(false);
 
   useEffect(() => {
     if (user_details.status === "idle") {
@@ -100,6 +110,41 @@ export default function Home({ children }) {
     dispatch(fetchProjectTasks(id));
     setSelectedProject(id);
     setSelectedProjectName(name);
+    // Close other views when selecting a task
+    setShowArchive(false);
+    setShowRecentlyDeleted(false);
+  };
+
+  // Toggle functions for Archive and Recently Deleted
+  const toggleArchive = () => {
+    setShowArchive(prev => !prev);
+    if (!showArchive) {
+      setShowRecentlyDeleted(false);
+      setSelectedProjectName("Archived Lists");
+    } else {
+      setSelectedProjectName("Your Tasks");
+    }
+  };
+
+  const toggleRecentlyDeleted = () => {
+    setShowRecentlyDeleted(prev => !prev);
+    if (!showRecentlyDeleted) {
+      setShowArchive(false);
+      setSelectedProjectName("Recently Deleted");
+    } else {
+      setSelectedProjectName("Your Tasks");
+    }
+  };
+
+  // Close handlers for the components
+  const handleCloseArchive = () => {
+    setShowArchive(false);
+    setSelectedProjectName("Your Tasks");
+  };
+
+  const handleCloseRecentlyDeleted = () => {
+    setShowRecentlyDeleted(false);
+    setSelectedProjectName("Your Tasks");
   };
 
   // handles list modal
@@ -115,6 +160,7 @@ export default function Home({ children }) {
   // accordion state
   const [activeKey, setActiveKey] = useState("0");
   const navigate = useNavigate();
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -196,6 +242,30 @@ export default function Home({ children }) {
                 </Button>
               </Col>
             </Row>
+            <br />
+            {/* Add new row for Archive and Recently Deleted */}
+            <Row className="g-2">
+              <Col className="d-grid">
+                <Button 
+                  variant="contained" 
+                  className="dashboard-button"
+                  onClick={toggleArchive}
+                  sx={{ backgroundColor: showArchive ? "#16675e" : "" }}
+                >
+                  <ArchiveIcon style={{ fontSize: 40 }} /> Archive
+                </Button>
+              </Col>
+              <Col className="d-grid">
+                <Button 
+                  variant="contained" 
+                  className="dashboard-button"
+                  onClick={toggleRecentlyDeleted}
+                  sx={{ backgroundColor: showRecentlyDeleted ? "#16675e" : "" }}
+                >
+                  <DeleteOutlineIcon style={{ fontSize: 40 }} /> Trash
+                </Button>
+              </Col>
+            </Row>
           </Container>
         </List>
         <Divider />
@@ -251,8 +321,13 @@ export default function Home({ children }) {
         <DrawerHeader />
         <ListModal handleClose={handleCloseListModal} open={openListModal} />
         <ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList} />
-        {/* If children are provided, render them; otherwise, render the Tasks view on the "/" route */}
-        {children ? (
+        
+        {/* Conditionally render content based on state */}
+        {showArchive ? (
+          <Archive className="" onClose={handleCloseArchive} />
+        ) : showRecentlyDeleted ? (
+          <RecentlyDeletedContainer className="" onClose={handleCloseRecentlyDeleted} />
+        ) : children ? (
           children
         ) : (
           location.pathname === "/" &&
