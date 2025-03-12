@@ -7,34 +7,34 @@ import ManageTasks from './articles/ManageTasks';
 import TrackProgress from './articles/TrackProgress';
 import UpdatePassword from './articles/UpdatePassword';
 import ViewPermissions from './articles/ViewPermissions';
-import './HelpPage.css'; // Import the separate CSS file
+import styles from './HelpPage.module.css';
 import Home from './Home';
 
 const HelpPage = () => {
-    const [activeSection, setActiveSection] = useState('createProject');
+  const [activeSection, setActiveSection] = useState('createProject');
 
-    const renderArticle = () => {
-        switch (activeSection) {
-            case 'createProject':
-                return <CreateProject />;
-            case 'deleteProject':
-                return <DeleteProject />;
-            case 'editEmail':
-                return <EditEmail />;
-            case 'editProject':
-                return <EditProject />;
-            case 'manageTasks':
-                return <ManageTasks />;
-            case 'trackProgress':
-                return <TrackProgress />;
-            case 'updatePassword':
-                return <UpdatePassword />;
-            case 'viewPermissions':
-                return <ViewPermissions />;
-            default:
-                return <CreateProject />;
-        }
-    };
+  const renderArticle = () => {
+    switch (activeSection) {
+      case 'createProject':
+        return <CreateProject />;
+      case 'deleteProject':
+        return <DeleteProject />;
+      case 'editEmail':
+        return <EditEmail />;
+      case 'editProject':
+        return <EditProject />;
+      case 'manageTasks':
+        return <ManageTasks />;
+      case 'trackProgress':
+        return <TrackProgress />;
+      case 'updatePassword':
+        return <UpdatePassword />;
+      case 'viewPermissions':
+        return <ViewPermissions />;
+      default:
+        return <CreateProject />;
+    }
+  };
 
     return (
         <Home>
