@@ -28,6 +28,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+<<<<<<< HEAD
 import FolderIcon from '@mui/icons-material/Folder';
 import DescriptionIcon from '@mui/icons-material/Description';
 import AddIcon from '@mui/icons-material/Add';
@@ -37,6 +38,10 @@ import { fetchUserDetails } from "../../redux/slices/userDetailsSlice";
 import { useLocation, useNavigate } from 'react-router-dom';
 import Archive from './Archive';
 import RecentlyDeletedContainer from './RecentlyDeletedContainer';
+=======
+import { fetchUserDetails } from "../../redux/slices/userDetailsSlice";
+import { useLocation, useNavigate } from 'react-router-dom';
+>>>>>>> origin/main
 
 const drawerWidth = 290;
 
@@ -197,8 +202,11 @@ export default function Home({ children }) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedProjectName, setSelectedProjectName] = useState("Your Tasks");
   const location = useLocation();
+<<<<<<< HEAD
   const [showArchive, setShowArchive] = useState(false);
   const [showTrash, setShowTrash] = useState(false);
+=======
+>>>>>>> origin/main
 
   useEffect(() => {
     if (user_details.status === "idle") {
@@ -243,6 +251,7 @@ export default function Home({ children }) {
   // accordion state
   const [activeKey, setActiveKey] = useState("0");
   const navigate = useNavigate();
+<<<<<<< HEAD
   
   // Get current page title
   const getPageTitle = () => {
@@ -276,6 +285,8 @@ export default function Home({ children }) {
     setShowTrash(false);
   };
 
+=======
+>>>>>>> origin/main
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -323,6 +334,7 @@ export default function Home({ children }) {
           </IconButton>
         </DrawerHeader>
         <Divider />
+<<<<<<< HEAD
         
         <Paper 
           elevation={0} 
@@ -432,6 +444,55 @@ export default function Home({ children }) {
           </Tooltip>
         </Box>
         
+=======
+        <List>
+          <Container className="mt-4">
+            <Row className="align-items-center">
+              <Col xs="auto">
+                <Avatar
+                  alt="Profile Picture"
+                  src={user_details.status === "loading" ? "Loading..." : user_details.profile_picture}
+                  sx={{ width: 56, height: 56, border: 4, borderColor: "#16675e" }}
+                />
+              </Col>
+              <Col>
+                <h4 className="mb-0" style={{ color: "#16675e", fontWeight: "bold" }}>
+                  {user_details.status === "loading" ? "Loading..." : user_details.user?.username}
+                </h4>
+              </Col>
+            </Row>
+            <br />
+            <Row className="g-2">
+              <Col className="d-grid">
+                <Button variant="contained" className="dashboard-button" onClick={()=>navigate("/settings")}>
+                  <SettingsIcon style={{ fontSize: 40 }} /> Settings
+                </Button>
+              </Col>
+              <Col className="d-grid">
+                <Button variant="contained" className="dashboard-button" onClick={()=>navigate("/")}>
+                  <Person2Icon style={{ fontSize: 40 }} /> Tasks
+                </Button>
+              </Col>
+            </Row>
+            <br />
+            <Row className="g-2">
+              <Col className="d-grid">
+                <Button variant="contained" className="dashboard-button" onClick={()=>navigate("/reports")}>
+                  <PieChartIcon style={{ fontSize: 40 }} /> Reports
+                </Button>
+              </Col>
+              <Col className="d-grid">
+                <Button variant="contained" className="dashboard-button" onClick={()=>navigate("/help")}>
+                  <HelpOutlineIcon style={{ fontSize: 40 }} /> Help
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        </List>
+        <Divider />
+        <Button variant="text" onClick={handleOpenListModal}>+ New List</Button>
+        <Divider />
+>>>>>>> origin/main
         {dashboard.status === 'succeeded' && (
           <Accordion activeKey={activeKey} onSelect={(eventKey) => setActiveKey(eventKey)} className="mt-2">
             {dashboard.lists.map((list, index) => (
@@ -499,6 +560,7 @@ export default function Home({ children }) {
         <DrawerHeader />
         <ListModal handleClose={handleCloseListModal} open={openListModal} />
         <ProjectModal handleClose={handleCloseProjectModal} open={openProjectModal} listId={selectedList} />
+<<<<<<< HEAD
         {/* Archive Modal */}
         <Modal
           open={showArchive}
@@ -519,6 +581,8 @@ export default function Home({ children }) {
             <RecentlyDeletedContainer onClose={handleCloseTrash} />
           </Box>
         </Modal>
+=======
+>>>>>>> origin/main
         {/* If children are provided, render them; otherwise, render the Tasks view on the "/" route */}
         {children ? (
           children
