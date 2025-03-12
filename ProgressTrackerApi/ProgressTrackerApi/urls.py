@@ -24,7 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
     path('api/', include('projects.urls')),
-    path('', main)
+    path('', main),
+    path('login/', main),
+    path('register/', main),
+    path('reports/', main),
+    path('settings/', main),
+    path('help/', main)
+
 ]
 
 if settings.DEBUG:

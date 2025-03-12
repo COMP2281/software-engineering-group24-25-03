@@ -1,33 +1,34 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { authRefresh } from '../../redux/slices/authSlice';
 
 const ProtectedRoute = ({ children }) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
-  var refreshToken = useSelector((state) => state.auth.refreshToken);
-  const status = useSelector((state) => state.auth.status)
-  const dispatch = useDispatch()
+  const refreshToken = useSelector((state) => state.auth.refreshToken) || localStorage.getItem('refresh');
+  const status = useSelector((state) => state.auth.status);
+  const dispatch = useDispatch();
+  const [isRefreshing, setIsRefreshing] = useState(true);
 
-  if(!refreshToken){
-    refreshToken = localStorage.getItem('refresh')
-    if(!refreshToken){
-        return <Navigate to="/login" />
+  useEffect(() => {
+    if (!accessToken && refreshToken) {
+      dispatch(authRefresh({ refresh: refreshToken })).finally(() => {
+        setIsRefreshing(false);
+      });
+    } else {
+      setIsRefreshing(false);
     }
-  }
-  if(status == 'idle'){
-    dispatch(authRefresh({ refresh: refreshToken }));
+  }, [accessToken, refreshToken, dispatch]);
+
+  if (!refreshToken) {
+    return <Navigate to="/login" />;
   }
 
-  if(accessToken == null && status == 'idle'){
-      return <Navigate to="/login" />
+  if (isRefreshing || status === 'loading') {
+    return <h1>Loading...</h1>;
+  }
 
-  }
-  if (status === 'loading'){
-      return <h1>Loading</h1>
-  }
-  else{
-      return children
-  }
+  return children;
 };
 
 export default ProtectedRoute;
