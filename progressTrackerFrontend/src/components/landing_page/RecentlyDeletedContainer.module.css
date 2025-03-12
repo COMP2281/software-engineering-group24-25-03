@@ -1,0 +1,337 @@
+.recentlyDeletedContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+  }
+  
+  .recentlyDeleted {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 24px;
+    border: 3px solid #f1d7cb;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header styles */
+  .header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .titleContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icontrash {
+    color: #724733;
+    margin-right: 1rem;
+  }
+  
+  .recentlyDeletedTasks {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #724733;
+    margin: 0;
+  }
+  
+  .closeButton {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .closeButton:hover {
+    background-color: #eaeaea;
+  }
+  
+  .closeButton span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5c5c5c;
+    margin-right: 0.5rem;
+  }
+  
+  .closeIcon {
+    color: #5c5c5c;
+  }
+  
+  /* Content area */
+  .content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    max-height: 70vh;
+  }
+  
+  /* Loading, error and empty states */
+  .loadingState,
+  .errorState,
+  .emptyState {
+    padding: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .spinner,
+  .smallSpinner,
+  .tinySpinner {
+    border-radius: 50%;
+    border: 3px solid #e5e7eb;
+    border-top-color: #724733;
+    animation: spin 1s linear infinite;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .smallSpinner {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+  }
+  
+  .tinySpinner {
+    width: 12px;
+    height: 12px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .errorState {
+    padding: 2rem;
+  }
+  
+  .retryButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f1d7cb;
+    color: #724733;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .retryButton:hover {
+    background-color: #e9c8b7;
+  }
+  
+  .emptyState {
+    padding: 4rem 2rem;
+    gap: 1rem;
+  }
+  
+  .emptyState p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin: 0;
+  }
+  
+  .emptyState span {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  /* Tasks list */
+  .tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .taskContainer {
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+  }
+  
+  .taskHeader {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: rgba(114, 71, 51, 0.05);
+  }
+  
+  .taskName {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #724733;
+    margin: 0;
+  }
+  
+  .headerActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .deletedDate {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .restoreButton {
+    display: flex;
+    align-items: center;
+    background-color: #724733;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .restoreButton:hover {
+    background-color: #5d3a2a;
+  }
+  
+  .restoreButton:disabled {
+    background-color: #b6a196;
+    cursor: not-allowed;
+  }
+  
+  .taskItems {
+    padding: 1rem 1.25rem;
+  }
+  
+  .listItem {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .listItem:last-child {
+    border-bottom: none;
+  }
+  
+  .checklistItemText {
+    font-size: 1rem;
+    color: #333;
+    flex-grow: 1;
+    padding-left: 0.5rem;
+    border-left: 3px solid #724733;
+  }
+  
+  .itemRestoreButton {
+    background-color: transparent;
+    color: #724733;
+    border: 1px solid #724733;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    height: 28px;
+  }
+  
+  .itemRestoreButton:hover {
+    background-color: rgba(114, 71, 51, 0.1);
+  }
+  
+  .itemRestoreButton:disabled {
+    color: #b6a196;
+    border-color: #b6a196;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .recentlyDeletedContainer {
+      padding: 1rem;
+    }
+    
+    .header {
+      padding: 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .closeButton {
+      align-self: flex-end;
+    }
+    
+    .recentlyDeletedTasks {
+      font-size: 1.5rem;
+    }
+    
+    .content {
+      padding: 1rem;
+    }
+    
+    .taskHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    
+    .headerActions {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .restoreButton {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .listItem {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .itemRestoreButton {
+      margin-top: 0.25rem;
+    }
+  }
