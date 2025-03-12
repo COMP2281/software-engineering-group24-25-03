@@ -36,67 +36,69 @@ const HelpPage = () => {
     }
   };
 
-  return (
-    <Home>
-      <div className={styles.helpPage}>
-        <aside className={styles.helpSidebar}>
-          <nav>
-            <h3>Projects</h3>
-            <ul>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('createProject')}>
-                  Creating a Project
-                </button>
-              </li>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('editProject')}>
-                  Editing a Project
-                </button>
-              </li>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('deleteProject')}>
-                  Deleting a Project
-                </button>
-              </li>
-            </ul>
-            <h3>Accounts</h3>
-            <ul>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('editEmail')}>
-                  Edit your email
-                </button>
-              </li>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('updatePassword')}>
-                  Update your password
-                </button>
-              </li>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('viewPermissions')}>
-                  See your permissions
-                </button>
-              </li>
-            </ul>
-            <h3>Tasks</h3>
-            <ul>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('manageTasks')}>
-                  Manage Tasks
-                </button>
-              </li>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('trackProgress')}>
-                  Tracking Progress
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </aside>
+    return (
+        <Home>
+        <div className="help-page">
+            <aside className="help-sidebar">
+                <nav>
+                    <h3>Projects</h3>
+                    <ul>
+                        <li>
+                        <button onClick={() => setActiveSection('createProject')}>
+                            Creating a Project
+                        </button>
+                        </li>
+                        <li>
+                        <button onClick={() => setActiveSection('editProject')}>
+                            Editing a Project
+                        </button>
+                        </li>
+                        <li>
+                        <button onClick={() => setActiveSection('deleteProject')}>
+                            Deleting a Project
+                        </button>
+                        </li>
+                    </ul>
+                    <h3>Accounts</h3>
+                    <ul>
+                        <li>
+                        <button onClick={() => setActiveSection('editEmail')}>
+                            Edit your email
+                        </button>
+                        </li>
+                        <li>
+                        <button onClick={() => setActiveSection('updatePassword')}>
+                            Update your password
+                        </button>
+                        </li>
+                        <li>
+                        <button onClick={() => setActiveSection('viewPermissions')}>
+                            See your permissions
+                        </button>
+                        </li>
+                    </ul>
+                    <h3>Tasks</h3>
+                    <ul>
+                        <li>
+                        <button onClick={() => setActiveSection('manageTasks')}>
+                            Manage Tasks
+                        </button>
+                        </li>
+                        <li>
+                        <button onClick={() => setActiveSection('trackProgress')}>
+                            Tracking Progress
+                        </button>
+                        </li>
+                    </ul>
 
-        <section className={styles.helpContent}>{renderArticle()}</section>
-      </div>
-    </Home>
-  );
+                </nav>
+            </aside>
+            <section className="help-content">
+                {renderArticle()}
+            </section>
+        </div>
+        </Home>
+    );
 };
 
 export default HelpPage;
