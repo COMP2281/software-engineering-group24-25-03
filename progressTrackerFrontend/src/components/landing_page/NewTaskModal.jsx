@@ -1,65 +1,108 @@
 import * as React from 'react';
-import { Box, Button, Typography, Modal, Input } from '@mui/material';
+import { Modal } from '@mui/material';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createTask } from '../../redux/slices/dashboardSlice';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+import './AddTask.css';
 
 const CreateTaskModal = ({ handleClose, open, projectId }) => {
   const dispatch = useDispatch();
-  const [name, setName] = React.useState(''); // Local state for list name
-  const [description, setDescription] = React.useState(''); // Local state for list name
+  const [isExtended, setIsExtended] = useState(false);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
 
-  // Handle input change
-  const handleInputChange = (event) => {
-    setName(event.target.value);
-  };
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-  // Dispatch createList action with the name
   const handleCreateTask = () => {
     if (name.trim() !== '') {
-        dispatch(createTask({ projectId, taskName:name, taskDescription:description }));
-        setName(''); // Reset input field after submission
-      handleClose(); // Close modal after creation
+      dispatch(createTask({ projectId, taskName: name, taskDescription: description }));
+      setName('');
+      setDescription('');
+      handleClose();
     }
   };
 
   return (
     <Modal open={open} onClose={handleClose}>
-      <Box sx={style}>
-        <Typography variant="h6">Create New Task</Typography>
+      <div className="popup-overlay">
+        <div className={`newTask ${isExtended ? "newTaskExtended" : ""}`}>
+          {/* Header Section */}
+          <div className="popup-header">
+            <h2 className="createTask">Create Task</h2>
+            <button className="closeButton" onClick={handleClose}>✖</button>
+          </div>
 
-        <Input 
-          placeholder="New Task" 
-          value={name} 
-          onChange={handleInputChange} 
-          fullWidth
-          sx={{ mt: 2, mb: 2 }}
-        />
+          {/* Task Form */}
+          <div className="taskForm">
+            <div className="formGroup">
+              <label>Task Name</label>
+              <input 
+                type="text" 
+                placeholder="Enter Task Name" 
+                className="inputField" 
+                value={name} 
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
 
-        <Input 
-          placeholder="Description" 
-          value={description} 
-          onChange={handleDescriptionChange} 
-          fullWidth
-          sx={{ mt: 2, mb: 2 }}
-        />
-        <Button variant="contained" onClick={() => handleCreateTask(projectId)} fullWidth>
-          Done
-        </Button>
-      </Box>
+            <div className="formGroup">
+              <label>Description</label>
+              <textarea 
+                placeholder="Task Description" 
+                className="textareaField" 
+                value={description} 
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </div>
+
+            {isExtended && (
+              <>
+                <div className="formGroup">
+                  <label>Due Date</label>
+                  <input type="date" className="inputField" />
+                </div>
+
+                <div className="formGroup">
+                  <label>Assignee</label>
+                  <input type="text" placeholder="Assign a team member" className="inputField" />
+                </div>
+
+                <div className="formGroup">
+                  <label>Notes</label>
+                  <textarea placeholder="Add your notes here..." className="textareaField"></textarea>
+                </div>
+
+                <div className="formGroup">
+                  <label>Checklist</label>
+                  <input type="text" placeholder="Add checklist item..." className="inputField" />
+                  <button className="addChecklistItem">+</button>
+                </div>
+
+                <div className="formGroup">
+                  <label>Attach Files</label>
+                  <input type="file" className="fileUploadInput" multiple />
+                </div>
+
+                <div className="formGroup">
+                  <label>Add a Reminder</label>
+                  <input type="text" placeholder="Reminder Name" className="inputField" />
+                  <div className="reminderInputs">
+                    <input type="date" className="inputField" />
+                    <input type="time" className="inputField" />
+                    <button className="addReminderButton">+</button>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Buttons */}
+          <div className="buttonContainer">
+            <button className="toggleButton" onClick={() => setIsExtended(!isExtended)}>
+              {isExtended ? "Un-extend" : "Extend"}
+            </button>
+            <button className="saveButton" onClick={handleCreateTask}>Add Task</button>
+          </div>
+        </div>
+      </div>
     </Modal>
   );
 };
