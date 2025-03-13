@@ -11,14 +11,10 @@ const CreateProject = () => {
         <li>The project will now be visible in your dashboard.</li>
       </ol>
       <div className="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/T3qH-uY3t-Y"
-          title="Creating a Project Tutorial"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <video width="560" height="315" controls>
+          <source src="http://127.0.0.1:8000/media/videos/Create_Task.mp4" type="video/mp4"/>
+          Your browser does not support the video tag.
+        </video>
       </div>
     </article>
   );
