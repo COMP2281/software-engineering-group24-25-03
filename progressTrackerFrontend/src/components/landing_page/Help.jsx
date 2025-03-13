@@ -71,11 +71,6 @@ const HelpPage = () => {
                   Update your password
                 </button>
               </li>
-              <li>
-                <button className={styles.helpButton} onClick={() => setActiveSection('viewPermissions')}>
-                  See your permissions
-                </button>
-              </li>
             </ul>
             <h3>Tasks</h3>
             <ul>
